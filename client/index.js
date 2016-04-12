@@ -5,6 +5,7 @@ var Notifier = require('./notifier');
 var UserApp = require('./userApp');
 var UserAuth = require('./userAuth');
 var Home = require('./home');
+var Footer = require('./footer');
 
 
 
@@ -55,6 +56,7 @@ var App = React.createClass({
               <NavBar setActiveComponent={ this.setActiveComponent } getActiveComponent= { this.getActiveComponent } />
               {this.showWhichComponent()}
             </div>
+            <Footer />
           </UserAuth> 
         </Notifier> 
       </div>

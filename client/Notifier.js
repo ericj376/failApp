@@ -27,15 +27,15 @@ var Notifier = React.createClass({
     },
     render: function() {
         return (
-            <div>
-              { this.props.children }
-              <Snackbar
-               open={this.state.open}
-               message={this.state.message}
-               autoHideDuration={4000}
-               onRequestClose={this.handleRequestClose} />
-        </div>
-            )
+          <div>
+            { this.props.children }
+            <Snackbar
+              open={this.state.open}
+              message={this.state.message}
+              autoHideDuration={4000}
+              onRequestClose={this.handleRequestClose} />
+          </div>
+        )
     }
 
 });

@@ -3,7 +3,7 @@ var React = require('react');
 var UserAuth = React.createClass({
     getInitialState: function() {
       return {
-        user: null
+        user: null,
       }
     },
     
@@ -89,7 +89,11 @@ var UserAuth = React.createClass({
     
     
     render: function() {
-        return this.props.children;
+        return ( 
+          <div>
+            {this.props.children}
+          </div>
+        )
     }
 
 });
