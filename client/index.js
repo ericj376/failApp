@@ -1,12 +1,67 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var NavBar = require('./navbar');
+var Notifier = require('./notifier');
+var UserApp = require('./userApp');
+var UserAuth = require('./userAuth');
+var Home = require('./home');
+
+
+
 
 var App = React.createClass({
-  render: function(){
-    return(
-      <h1> Hello Fail Ap</h1>
+  getInitialState: function() {
+    return {
+      activeComponent: 'home'
+    }
+  },
+  setActiveComponent: function(componentName) {
+    this.setState({
+      activeComponent: componentName
+    })
+  },
+
+  getActiveComponent: function() {
+    return this.state.activeComponent;
+  },
+
+  showWhichComponent: function() {
+   switch(this.state.activeComponent) {
+    case 'home':
+        return <Home />
+        break;
+    case 'my page':
+        return <myPage />
+        break;
+    case 'why fail?':
+        return <whyFail />
+        break;
+    case 'login':
+        return <UserApp login={ true } setActiveComponent={this.setActiveComponent} />
+        break;
+    case 'signUp':
+        return <UserApp login={ false } setActiveComponent={this.setActiveComponent} />
+        break;
+    default:
+       return <Home />
+    }
+  },
+  render: function() {
+    return (
+      <div>
+        <Notifier>
+          <UserAuth>  
+            <div>
+              <NavBar setActiveComponent={ this.setActiveComponent } getActiveComponent= { this.getActiveComponent } />
+              {this.showWhichComponent()}
+            </div>
+          </UserAuth> 
+        </Notifier> 
+      </div>
       )
   }
-});
+})
 
-ReactDOM.render( <App />, document.getElementById('app'));
+ReactDOM.render(
+  <App />, document.getElementById('app')
+);
