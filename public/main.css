@@ -1,0 +1,28 @@
+body {
+  background-color: grey;
+  background-image: url("http://www.planwallpaper.com/static/images/abstract-colourful-cool-wallpapers-55ec7905a6a4f.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-header {
+  height: 80%;
+  font-size: 80px;
+  background-color: white;
+  color: red;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.photo-background {
+  height: 100%;
+  width: 100%;
+  background-color: orange;
+}
+
+.row-test {
+  
+  background-color: green;
+  text-align: right;
+
+}
