@@ -5,7 +5,7 @@ var app = express();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var session = require('express-session');
-
+mongoose.connect('mongodb://localhost/fail');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

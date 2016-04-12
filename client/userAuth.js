@@ -31,11 +31,12 @@ var UserAuth = React.createClass({
         }
     },
 
-    signUp: function(email, password, username) {
+    signUp: function(email, password, username, phone) {
       const userData = {
-        email: email.trim(),
-        password: password.trim(),
-        username: username.trim()
+        email: email,
+        password: password,
+        username: username,
+        phone: phone
       };
 
       const self = this;

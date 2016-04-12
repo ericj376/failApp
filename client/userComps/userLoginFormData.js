@@ -46,7 +46,7 @@ var UserLoginFormData = React.createClass({
       e.preventDefault();
         
         const promise = this.props.login ? logIn(email, password) : signUp(email, password, username, phone);
-        promise.done(() => setActiveComponent('welcome'));
+        promise.done(() => setActiveComponent('home'));
     },
     render: function() {
         return (
