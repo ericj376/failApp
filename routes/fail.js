@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Fail = require('../models/fail');
+var Comment = require('../models/comments');
 
 router.route('/fail')
 	.post(function(req,res) {
@@ -87,6 +88,58 @@ router.route('/fail/:fail_id')
      }
    })
  });
+
+ router.route('/fail/:fail_id/comment')
+  .get(function(req, res){
+    Fail.findById(req.params.fail_id)
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+        select: 'local.username',
+      }
+    })
+    .exec(function(err, comments){
+      if(err){
+        res.status(500).send(err, "Something broke on getting comments");
+      } else {
+        res.json(comments);
+      }
+    })
+  })
+  .post(function(req, res){
+    var comment = new Comment();
+    comment.body = req.body.body ? req.body.body : comment.body;
+    comment.user = '570ecb93a2124ee445920399';
+    comment.fail = req.params.fail_id;
+
+    console.log(comment.body);
+
+    comment.save(function(err, com){
+      if(err){
+        res.send(err);
+      } else {
+        Fail.findById(req.params.fail_id, function(err, fail){
+          if(err){
+            res.send(err);
+          } else {
+            fail.comments.push(com._id);
+            fail.save();
+            res.json(com);
+          }
+        })
+      }
+    })
+  })
+    .delete(function(req, res ){
+      Fail.remove({_id: req.params.fail_id}, function(err, fail){
+        if(err){
+            console.log(err);
+        } else {
+          res.json({message: 'comment deleted'});
+        }
+      })
+    });
 
  module.exports = router;
 
