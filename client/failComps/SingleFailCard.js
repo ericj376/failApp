@@ -15,3 +15,29 @@ Index
         Comment List
           Comment Card
 */
+
+var React = require('react');
+var CommentList = require('./CommentList');
+var CommentFormData = require('./CommentFormData');
+
+var SingleFailCard = React.createClass({
+  render: function(){
+    console.log(this.props.oneFail, "this is SingleFailCard");
+
+
+    return(
+    <div>
+      <div className="singlefailpost">
+        <p>{this.props.oneFail.title}</p>
+        <img src={this.props.oneFail.img}/>
+        <p>{this.props.oneFail.challenge}</p>
+        <p>{this.props.oneFail.ratings}</p>    
+
+ 
+      </div>
+    </div>
+    )
+  }
+});
+
+module.exports = SingleFailCard;
