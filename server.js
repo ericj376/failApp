@@ -9,6 +9,11 @@ var session = require('express-session');
 var passport = require('passport');
 var failRouter = require('./routes/fail');
 
+var comments = require('./models/comments');
+var fail = require('./models/fail');
+var ratings = require('./models/ratings');
+var user = require('./models/user');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

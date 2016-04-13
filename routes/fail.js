@@ -4,7 +4,7 @@ var Fail = require('../models/fail');
 
 router.route('/fail')
 	.post(function(req,res) {
-		var auth = req.user ? req.user._id : "570e8547c46324e733cb06df"
+		var auth = req.user ? req.user._id : "570e897b1d8875f6a4cce914"
 		var fail = new Fail ({
 			
 			title: req.body.title,
@@ -31,7 +31,7 @@ router.route('/fail')
 			if(err) {
 				console.log(err)
 			} else {
-				res.json(fail)
+				res.json(fails)
 			}
 		})
 	});
@@ -56,7 +56,7 @@ router.route('/fail/:fail_id')
 	})
 
 	.put(function(req, res) {
-		Fail.findById(req.params.fail._id, function(err, fail) {
+		Fail.findById(req.params.fail_id, function(err, fail) {
 			if(err) {
 				console.log(err)
 			} else {
