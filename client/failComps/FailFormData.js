@@ -1,0 +1,18 @@
+/*
+Index
+  Fail Box
+    Fail List Data
+      Fail List
+        Fail Card
+    Edit Fail Card Data
+      Edit Fail Card Form
+    Fail Form Data
+      Fail Form
+    Single Fail Card Data
+      Single Fail Card
+        Comment Form Data
+          Comment Form
+        Comment List
+          Comment Card
+*/
+

@@ -6,6 +6,8 @@ var UserApp = require('./userApp');
 var UserAuth = require('./userAuth');
 var Home = require('./home');
 var Footer = require('./footer');
+var WhyFail = require('./whyFail');
+var MyPage = require('./myPage');
 
 
 
@@ -32,10 +34,11 @@ var App = React.createClass({
         return <Home />
         break;
     case 'my page':
-        return <myPage />
+        return <MyPage />
         break;
+
     case 'why fail?':
-        return <whyFail />
+        return <WhyFail />
         break;
     case 'login':
         return <UserApp login={ true } setActiveComponent={this.setActiveComponent} />
@@ -48,6 +51,7 @@ var App = React.createClass({
     }
   },
   render: function() {
+    console.log("inside index")
     return (
       <div>
         <Notifier>
