@@ -11,8 +11,8 @@ var FailBox = React.createClass ({
     }
   },
   getId: function(type, id){
-    if(type ==='showOne'){
-      return this.setState({ activeFailId: id, activeComponent: 'oneFail' })
+    if(type === 'showOne'){
+      return this.setState({ activeFailId: id, activeComponent: 'showOne' })
     } else if (type === 'editOne'){
       return this.setState({ activeFailId : id, activeComponent: 'editFail' })
     } else {

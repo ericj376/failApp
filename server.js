@@ -1,11 +1,14 @@
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
-var passport = require('passport');
 var mongoose = require('mongoose');
-var session = require('express-session');
 mongoose.connect('mongodb://localhost/fail');
+var app = express();
+
+var session = require('express-session');
+var passport = require('passport');
+var failRouter = require('./routes/fail');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -42,6 +45,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
+app.use('/api', failRouter);
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
