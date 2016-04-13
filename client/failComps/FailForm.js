@@ -15,3 +15,38 @@ Index
         Comment List
           Comment Card
 */
+var React = require('react');
+
+
+function FailForm(props){
+  return(
+<div className="container myContainer">
+     <form onSubmit={ props.submitFailToServer }>
+       <h3> Post New Fail </h3>
+       <fieldset className="form-group">
+         <label>Title</label>
+         <input onChange={props.onTitleChange} value={props.title} type="text" className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>Image</label>
+         <input onChange={props.onImgChange} value={props.img}  type="text" className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>Challenge</label>
+         <input onChange={props.onChallengeChange} value={props.challenge} type="text" className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>Rating</label>
+         <input onChange={props.onRatingChange} value={props.rating}  type="text" className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>Category</label>
+         <input onChange={props.onCategoryChange} value={props.category}  type="text" className="form-control"/>
+       </fieldset>
+       <button className="btn btn-success-outline" type="submit"> Submit </button>
+     </form>
+   </div>
+  )
+};
+
+module.exports = FailForm;
