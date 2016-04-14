@@ -28,7 +28,7 @@ function FailCard(props) {
 					{props.category}
 					{props.rating}
 					<button onClick={props.getId.bind(null, 'showOne', props.id)} className="btn btn-primary"> View More </button>
-					<button onClick={props.getId.bind(null, 'editFail', props.id)} className="btn btn-primary"> Edit </button>
+					<button onClick={props.getId.bind(null, 'editOne', props.id)} className="btn btn-primary"> Edit </button>
 				</div>
 			</div>
 		</div>

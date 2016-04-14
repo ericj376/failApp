@@ -63,7 +63,7 @@ router.route('/fail/:fail_id')
 			} else {
 				 fail.title = req.body.title ? req.body.title : fail.title;
 	       fail.challenge = req.body.challenge ? req.body.challenge : fail.challenge;
-	       fail.image = req.body.image ? req.body.image : fail.image;
+	       fail.img = req.body.img ? req.body.img : fail.img;
 	       fail.rating = req.body.rating ? req.body.rating : fail.rating;
 	       fail.category = req.body.category ? req.body.category : fail.category;
 	       fail.icon = req.body.icon ? req.body.icon : fail.icon;

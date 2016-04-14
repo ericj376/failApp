@@ -15,3 +15,39 @@ Index
         Comment List
           Comment Card
 */
+var React = require('react');
+
+function EditFailCardForm(props) {
+  return(
+    <div className="container myContainer">
+     <form onSubmit={ props.handleFailEditSubmit }>
+       <h3> Edit Fail </h3>
+       <fieldset className="form-group">
+         <label>title</label>
+         <input onChange={props.onTitleChange} value={props.title} type="text" className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>challenge</label>
+         <input onChange={props.onChallengeChange} value={props.challenge}  type="text" className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>image</label>
+         <input onChange={props.onImgChange} value={props.img} type="text" className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>rating</label>
+         <input onChange={ props.onRatingChange } value={ props.rating }  className="form-control"/>
+       </fieldset>
+       <fieldset className="form-group">
+         <label>category</label>
+         <input onChange={ props.onCategoryChange } value={ props.category }  className="form-control"/>
+       </fieldset>
+       <button className="btn btn-success-outline" type="submit"> Submit </button>
+     </form>
+     </div>
+    )
+};
+
+module.exports = EditFailCardForm;
+
+module.exports = EditFailCardForm;

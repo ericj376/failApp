@@ -22,6 +22,7 @@ var Toggler = require('../toggler');
 var FailListData = require('./FailListData');
 var FailFormData = require('./FailFormData');
 var SingleFailCardData = require('./SingleFailCardData');
+var EditFailCardData = require('./EditFailCardData');
 
 var FailBox = React.createClass ({
   getInitialState: function() {
@@ -33,6 +34,7 @@ var FailBox = React.createClass ({
     console.log(activeFailId);
   },
   getId: function(type, id){
+    console.log(type, id);
     if(type === 'showOne'){
       return this.setState({ activeFailId: id, activeComponent: 'oneFail' })
       console.log(activeFailId, 'this is getId from FailBox');
@@ -48,11 +50,18 @@ var FailBox = React.createClass ({
       console.log('show component all fails')
       return <FailListData getId={ this.getId }/>
       console.log(getId)
+
     } else if (this.state.activeComponent === 'form'){
       return <FailFormData toggleActiveComp={ this.toggleActiveComp } />
+
     } else if (this.state.activeComponent === 'oneFail'){
       return <SingleFailCardData id={this.state.activeFailId} />
       console.log(id, 'this is show comp from FailBox')
+
+    } else if (this.state.activeComponent === 'editFail') {
+      console.log('show comp edit blog')
+      return <EditFailCardData id={ this.state.activeFailId } toggleActiveComp={ this.toggleActiveComp } />
+
     } else {
       throw new Error("Invalid activeComponent", this.state.activeComponent)
     }
