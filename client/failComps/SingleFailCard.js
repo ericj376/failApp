@@ -33,7 +33,7 @@ var SingleFailCard = React.createClass({
         <p>{this.props.oneFail.challenge}</p>
         <p>{this.props.oneFail.ratings}</p>    
         <CommentList commentsArray={this.props.oneFail.comments}/>
-        
+        <CommentFormData loadOneFailFromServer={ this.props.loadOneFailFromServer } id={ this.props.oneFail._id } />
       </div>
     </div>
     )
