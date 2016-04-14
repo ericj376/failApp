@@ -24,11 +24,20 @@ var SingleFailCardData = React.createClass({
   getInitialState: function(){
     return{
       oneFail: null,
+      allComments: null,
     }
   },
-  getId: function(id){
-    console.log(id)
+  deleteComment: function(id){
+    var self = this;
+    $.ajax({
+      url: '/api/fail/' + this.props.id + '/comment/' + id,
+      method: 'DELETE'
+    }).done(function(){
+      alert('comment deleted');
+      self.loadOneFailFromServer();
+    })
   },
+  
   loadOneFailFromServer: function(){
     var self = this;
     const ajaxProps = {
@@ -43,7 +52,7 @@ var SingleFailCardData = React.createClass({
     this.loadOneFailFromServer();
   },
   render: function(){
-    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } getId={ this.getId } /> : null;
+    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } deleteComment={ this.deleteComment } /> : null;
   }
 
 });

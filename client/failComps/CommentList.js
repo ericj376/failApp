@@ -30,7 +30,7 @@ var CommentList = React.createClass({
       var user = c.user && c.user.local ? c.user.local.username : "no user";
 
       var b = c.body ? c.body : null
-      return <CommentCard body={b} date={c.date.substr(0,10)} username={user} id={c._id} getId={ self.props.getId }/>
+      return <CommentCard body={b} date={c.date.substr(0,10)} username={user} id={c._id} deleteComment={ self.props.deleteComment }/>
     });
 
     return(

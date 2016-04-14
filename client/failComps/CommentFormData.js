@@ -43,7 +43,7 @@ var CommentFormData = React.createClass({
       }.bind(this)
     });
 
-    self.setState({ body:''});
+    self.setState({ body: ''});
   },
   onBodyChange: function(event){
     this.setState({ body: event.target.value });

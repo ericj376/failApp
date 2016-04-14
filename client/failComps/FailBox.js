@@ -50,7 +50,7 @@ var FailBox = React.createClass ({
       return <FailFormData toggleActiveComp={ this.toggleActiveComp } />
 
     } else if (this.state.activeComponent === 'oneFail'){
-      return <SingleFailCardData id={this.state.activeFailId} />
+      return <SingleFailCardData id={this.state.activeFailId}  />
 
     } else if (this.state.activeComponent === 'editFail') {
       return <EditFailCardData id={ this.state.activeFailId } toggleActiveComp={ this.toggleActiveComp } />

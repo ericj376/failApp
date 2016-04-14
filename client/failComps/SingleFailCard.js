@@ -31,7 +31,7 @@ var user = this.props.user ? this.props.user.local.email : null;
         <img src={this.props.oneFail.img}/>
         <p>{this.props.oneFail.challenge}</p>
         <p>{this.props.oneFail.ratings}</p>    
-        <CommentList commentsArray={this.props.oneFail.comments} getId={ this.props.getId }/>
+        <CommentList commentsArray={this.props.oneFail.comments} deleteComment={ this.props.deleteComment }/>
         <CommentFormData loadOneFailFromServer={ this.props.loadOneFailFromServer } id={ this.props.oneFail._id } />
       </div>
     </div>
