@@ -110,7 +110,7 @@ router.route('/fail/:fail_id')
   .post(function(req, res){
     var comment = new Comment();
     comment.body = req.body.body ? req.body.body : comment.body;
-    comment.user = '570ecb93a2124ee445920399';
+    comment.user = '570fbe95610309c10fbeaea6';
     comment.fail = req.params.fail_id;
 
     console.log(comment.body);

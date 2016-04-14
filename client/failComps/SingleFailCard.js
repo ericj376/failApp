@@ -32,8 +32,8 @@ var SingleFailCard = React.createClass({
         <img src={this.props.oneFail.img}/>
         <p>{this.props.oneFail.challenge}</p>
         <p>{this.props.oneFail.ratings}</p>    
-
- 
+        <CommentList commentsArray={this.props.oneFail.comments}/>
+        
       </div>
     </div>
     )

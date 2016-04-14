@@ -15,3 +15,19 @@ Index
         Comment List
           Comment Card
 */
+var React =require('react');
+
+var CommentCard = React.createClass({
+  render: function(){
+    console.log('Data in Card', this.props.body, this.props.date, this.props.username );
+    return(
+      <div>
+        <p>{this.props.body}</p>
+        <p>{this.props.date}</p>
+        <p>{this.props.username}</p>
+      </div>
+        )
+  }
+});
+
+module.exports = CommentCard;
