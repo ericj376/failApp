@@ -19,6 +19,11 @@ var React = require('react');
 var CommentCard = require('./commentCard');
 
 var CommentList = React.createClass({
+  handleCommentDelete: function() {
+    var self = this;
+    
+  }
+
   render: function(){
 
     console.log("this is supposedly not an array", this.props.commentsArray);

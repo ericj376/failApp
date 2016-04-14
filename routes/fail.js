@@ -130,16 +130,19 @@ router.route('/fail/:fail_id')
         })
       }
     })
-  })
-    .delete(function(req, res ){
-      Fail.remove({_id: req.params.fail_id}, function(err, fail){
-        if(err){
-            console.log(err);
-        } else {
-          res.json({message: 'comment deleted'});
-        }
-      })
-    });
+  });
+
+router.route('/fail/:fail_id/comment/:comments_id')
+  .delete(function(req, res ){
+    Comment.remove({_id: req.params.comments_id}, function(err, comment){
+      if(err){
+          console.log(err);
+      } else {
+        res.json({message: 'comment deleted'});
+      }
+    })
+  });
+
 
  module.exports = router;
 

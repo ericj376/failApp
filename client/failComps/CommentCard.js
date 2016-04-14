@@ -24,6 +24,7 @@ var CommentCard = React.createClass({
         <p>{this.props.body}</p>
         <p>{this.props.date}</p>
         <p>{this.props.username}</p>
+        <button onClick={props.getId.bind(null, 'deleteComment', props.id)} type="button" className="btn btn-warning">Delete Comment</button>
       </div>
         )
   }
