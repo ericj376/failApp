@@ -26,6 +26,9 @@ var SingleFailCardData = React.createClass({
       oneFail: null,
     }
   },
+  getId: function(id){
+    console.log(id)
+  },
   loadOneFailFromServer: function(){
     var self = this;
     const ajaxProps = {
@@ -40,7 +43,7 @@ var SingleFailCardData = React.createClass({
     this.loadOneFailFromServer();
   },
   render: function(){
-    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } /> : null;
+    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } getId={ this.getId } /> : null;
   }
 
 });

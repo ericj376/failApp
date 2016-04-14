@@ -19,20 +19,18 @@ var React = require('react');
 var CommentCard = require('./commentCard');
 
 var CommentList = React.createClass({
-  handleCommentDelete: function() {
-    var self = this;
-    
-  }
+  
 
   render: function(){
 
     console.log("this is supposedly not an array", this.props.commentsArray);
+      var self = this;
 
       var comments = this.props.commentsArray.map(function(c){
       var user = c.user && c.user.local ? c.user.local.username : "no user";
 
       var b = c.body ? c.body : null
-      return <CommentCard body={b} date={c.date.substr(0,10)} username={user}/>
+      return <CommentCard body={b} date={c.date.substr(0,10)} username={user} id={c._id} getId={ self.props.getId }/>
     });
 
     return(
