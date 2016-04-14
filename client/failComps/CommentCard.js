@@ -19,7 +19,6 @@ var React =require('react');
 
 var CommentCard = React.createClass({
   render: function(){
-    console.log('Data in Card', this.props.body, this.props.date, this.props.username );
     return(
       <div>
         <p>{this.props.body}</p>

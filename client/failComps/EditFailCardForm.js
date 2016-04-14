@@ -49,5 +49,3 @@ function EditFailCardForm(props) {
 };
 
 module.exports = EditFailCardForm;
-
-module.exports = EditFailCardForm;

@@ -54,14 +54,12 @@ var FailFormData = React.createClass({
       category: this.state.category,
     };
     var self = this;
-    console.log('i submit fail to server', failData);
 
     $.ajax({
       url: '/api/fail',
       method: 'POST',
       data: failData
     }).done(function(data){
-      console.log('inside success', data);
       self.props.toggleActiveComp('blog');
     });
 

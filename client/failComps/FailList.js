@@ -23,7 +23,6 @@ var FailCard = require('./FailCard');
 
 function FailList(props) {
 		//map through data and pass it to Fail card; 
-		console.log(props.failArray);
 		var allFails = props.failArray.map(item => {
 			return(
 			    <FailCard

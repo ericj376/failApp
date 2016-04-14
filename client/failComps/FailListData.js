@@ -34,11 +34,9 @@ var FailListData = React.createClass({
 			method: 'GET'
 		}).done(function(data){
 		self.setState({ allFails: data });
-		console.log(data, "this is Fail List Data");
 	})
 	},
 	componentDidMount: function() {
-		console.log("trying to mount Fail List Data");
 		this.loadAllFailsFromServer()
 	},
 	render: function() {

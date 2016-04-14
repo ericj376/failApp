@@ -33,14 +33,12 @@ var CommentFormData = React.createClass({
     };
 
     var self = this;
-    console.log('i submit comment to server', data.body);
 
     $.ajax({
       url: '/api/fail/' + this.props.id + '/comment',
       method: 'POST',
       data: data,
       success: function(data){
-        console.log(data, 'this is comment data');
         self.props.loadOneFailFromServer();
       }.bind(this)
     });

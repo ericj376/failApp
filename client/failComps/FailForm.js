@@ -20,7 +20,7 @@ var React = require('react');
 
 function FailForm(props){
   return(
-<div className="container myContainer">
+<div className="container myContainer spacer">
      <form onSubmit={ props.submitFailToServer }>
        <h3> Post New Fail </h3>
        <fieldset className="form-group">

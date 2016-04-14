@@ -5,7 +5,7 @@ var Comment = require('../models/comments');
 
 router.route('/fail')
 	.post(function(req,res) {
-		var auth = req.user ? req.user._id : "570e897b1d8875f6a4cce914"
+		var auth = req.user ? req.user._id : "570feef11b7140423ccbddcd"
 		var fail = new Fail ({
 			
 			title: req.body.title,
@@ -110,7 +110,7 @@ router.route('/fail/:fail_id')
   .post(function(req, res){
     var comment = new Comment();
     comment.body = req.body.body ? req.body.body : comment.body;
-    comment.user = '570fbe95610309c10fbeaea6';
+    comment.user = req.user ? req.user._id : "570feef11b7140423ccbddcd";
     comment.fail = req.params.fail_id;
 
     console.log(comment.body);

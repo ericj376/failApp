@@ -22,9 +22,8 @@ var CommentFormData = require('./CommentFormData');
 
 var SingleFailCard = React.createClass({
   render: function(){
-    console.log(this.props.oneFail, "this is SingleFailCard");
 
-
+var user = this.props.user ? this.props.user.local.email : null;
     return(
     <div>
       <div className="singlefailpost">

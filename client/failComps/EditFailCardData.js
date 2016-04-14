@@ -34,7 +34,6 @@ var EditFailCardData = React.createClass({
       url: '/api/fail/' + this.props.id,
       method:'GET',
     }).done(function(data){
-      console.log("loadOneFailFromServer", data);
       self.setState({
         title: data.title,
         challenge: data.challenge,
@@ -54,7 +53,6 @@ var EditFailCardData = React.createClass({
       type: 'PUT',
       data: fail,
       success: function(data){
-        console.log("this is updateBlogForm", data);
         this.loadOneFailFromServer();
         this.props.toggleActiveComp('oneFail');
       }.bind(this),
@@ -88,7 +86,6 @@ var EditFailCardData = React.createClass({
     var rating = this.state.rating;
     var category = this.state.category;
 
-    console.log('this is handleFailEditSubmit', title);
 
     this.updateFailForm({ title: title, challenge: challenge, img: img, rating: rating, category: category });
     this.setState({ title: '', challenge: '', img: '', rating: '', category: ''})

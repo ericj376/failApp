@@ -20,11 +20,15 @@ var CommentCard = require('./commentCard');
 
 var CommentList = React.createClass({
   render: function(){
-    var comments = this.props.commentsArray.map(function(c){
+
+    console.log("this is supposedly not an array", this.props.commentsArray);
+
+      var comments = this.props.commentsArray.map(function(c){
+      var user = c.user && c.user.local ? c.user.local.username : "no user";
+
       var b = c.body ? c.body : null
-      return <CommentCard body={b} date={c.date.substr(0,10)} username={c.user.local.username}/>
+      return <CommentCard body={b} date={c.date.substr(0,10)} username={user}/>
     });
-    console.log(comments, "i am comment list");
 
     return(
       <div>
