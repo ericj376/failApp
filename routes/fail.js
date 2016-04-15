@@ -141,13 +141,37 @@ router.route('/fail/:fail_id/comment/:comments_id')
         res.json({message: 'comment deleted'});
       }
     })
+  })
+  .put(function(req, res){
+    Comment.findById(req.params.comments_id, function(err, comment){
+      if(err) {
+        console.log(err)
+      } else {
+        comment.body = req.body.body ? req.body.body : comment.body;
+
+        comment.save(function(err, newComment) {
+          if (err) {
+            console.log(err)
+          } else {
+          } res.json({ message: 'Comment updated!'});
+        })
+      }
+    })
+  })
+  .get(function(req, res){
+    Comment.findById(req.params.comments_id)
+      .populate({ path: 'user', select: 'local.username' })
+      .exec(function(err, comment){
+        if(err){
+          console.log(err)
+        } else {
+          res.json(comment)
+        }
+      })
   });
 
 
  module.exports = router;
-
-
-
 
 
 
