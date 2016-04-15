@@ -14,10 +14,13 @@ Index
           Comment Form
         Comment List
           Comment Card
+          Edit Comment Card Data
+            Edit Comment Card
 */
 
 var React = require('react');
 var SingleFailCard = require('./SingleFailCard');
+var CommentCard = require('./CommentCard');
 
 
 var SingleFailCardData = React.createClass({
@@ -27,6 +30,7 @@ var SingleFailCardData = React.createClass({
       allComments: null,
     }
   },
+
   deleteComment: function(id){
     var self = this;
     $.ajax({
@@ -37,7 +41,7 @@ var SingleFailCardData = React.createClass({
       self.loadOneFailFromServer();
     })
   },
-  
+    
   loadOneFailFromServer: function(){
     var self = this;
     const ajaxProps = {

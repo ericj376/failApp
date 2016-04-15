@@ -14,6 +14,8 @@ Index
           Comment Form
         Comment List
           Comment Card
+        Edit Comment Card Data
+          Edit Comment Card
 */
 
 var React = require('react');
