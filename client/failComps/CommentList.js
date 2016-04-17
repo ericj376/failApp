@@ -20,6 +20,7 @@ Index
 var React = require('react');
 var CommentCard = require('./CommentCard');
 var EditCommentCard = require('./EditCommentCard');
+var EditCommentCardData = require('./EditCommentCardData');
 
 var CommentList = React.createClass({
     getInitialState: function(){
@@ -58,14 +59,19 @@ var CommentList = React.createClass({
         var user = c.user && c.user.local ? c.user.local.username : "no user";
 
         var b = c.body ? c.body : null;
-        return <CommentCard body={b} date={c.date.substr(0,10)} username={user} id={c._id} deleteComment={ self.props.deleteComment } getId={self.getId} toggleActiveComp={self.toggleActiveComp}/> 
+        return(
+          <div>
+           <CommentCard body={b} date={c.date.substr(0,10)} username={user} id={c._id} deleteComment={ self.props.deleteComment } getId={self.getId} toggleActiveComp={self.toggleActiveComp}/> 
+           <EditCommentCardData id={c._id} failId={self.props.failId} toggleActiveComp={self.toggleActiveComp}/>
+          </div>
+        )
       });
 
       return(
         <div>
           { comments }
         </div>
-        )
+      )
     },
 
     render: function(){

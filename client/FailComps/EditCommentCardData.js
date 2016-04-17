@@ -29,9 +29,10 @@ var EditCommentCardData = React.createClass({
   },
   
   loadOneCommentFromServer: function(){
+    console.log("loading a comment");
     var self = this;
     $.ajax({
-      url: '/api/fail/' + this.props.id + '/comment/' + id,
+      url: '/api/fail/' + this.props.failId + '/comment/' + this.props.id,
       method: 'GET',
     }).done(function(data){
       self.setState({
@@ -42,11 +43,38 @@ var EditCommentCardData = React.createClass({
   componentDidMount: function(){
     this.loadOneCommentFromServer();
   },
- 
+  updateCommentCard: function(comment){
+    $.ajax({
+      url: '/api/fail/' + this.props.failId + '/comment/' + this.props.id,
+      dataType: 'json',
+      type: 'PUT',
+      data: comment,
+      success: function(data){
+        this.loadOneCommentFromServer();
+        this.props.toggleActiveComp('editComment');
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(status, err.toString());
+      }.bind(this)
+    });
+  },
+
+  onBodyChange: function(event){
+    this.setState({body: event.target.value})
+  },
+  handleCommentCardEditSubmit: function(event){
+    event.preventDefault();
+
+      var body = this.state.body;
+
+      this.updateCommentCard({body: body});
+      this.setState({body: ''})
+  },
+
   render: function(){
     return(
-      <EditCommentCard/>
-      )
+      <EditCommentCard handleCommentCardEditSubmit={this.handleCommentCardEditSubmit} onBodyChange={this.onBodyChange} body={this.state.body}/>
+    )
   }
 });
 
