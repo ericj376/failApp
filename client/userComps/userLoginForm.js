@@ -1,9 +1,9 @@
 /*
-Index
-  UserAuth
-  UserApp
-    UserLoginFormData
-      UserLoginForm
+  Index
+    UserApp
+      UserLoginFormData
+        UserLoginForm
+    UserAuth
 */
 
 var React = require('react');

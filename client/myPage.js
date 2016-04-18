@@ -1,3 +1,16 @@
+/*
+  Index
+    MyPage
+      MyPageBox 
+        UserInfoData
+          UserInfo
+        DailyChallengeData
+          DailyChallenge
+        CompletedChallengesData
+          CompletedChallengesList
+            CompletedChallengesCard
+*/
+
 var React = require('react');
 
 var MyPage = React.createClass({
@@ -16,6 +29,7 @@ var MyPage = React.createClass({
           </div>
         </div>
         <div>
+
         </div>
       </div>
     )

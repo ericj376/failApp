@@ -1,3 +1,11 @@
+/*
+  Index
+    UserApp
+      UserLoginFormData
+        UserLoginForm
+    UserAuth
+*/
+
 var React = require('react');
 
 var UserAuth = React.createClass({

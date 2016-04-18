@@ -1,0 +1,12 @@
+/*
+  Index
+    MyPage
+      MyPageBox 
+        UserInfoData
+          UserInfo
+        DailyChallengeData
+          DailyChallenge
+        CompletedChallengesData
+          CompletedChallengesList
+            CompletedChallengesCard
+*/
