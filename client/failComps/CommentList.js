@@ -19,7 +19,6 @@ Index
 */
 var React = require('react');
 var CommentCard = require('./CommentCard');
-var EditCommentCard = require('./EditCommentCard');
 var EditCommentCardData = require('./EditCommentCardData');
 
 var CommentList = React.createClass({
@@ -30,7 +29,7 @@ var CommentList = React.createClass({
       }
     },
     getId: function(type, id){
-      console.log(type, id, "this is getID in Comment LIST");
+      
       if(type === 'showOneComment'){
         return this.setState({ activeCommentId: id, activeComponent: 'commentCard'})
       } else if (type === 'editOneComment'){
@@ -41,18 +40,19 @@ var CommentList = React.createClass({
     },
     showComp: function(){
       /*show comment card or edit comment card data*/
-      console.log("trying to show components in COMMENT LIST")
+      
       if(this.state.activeComponent === 'commentCard'){
         return this.showCommentCard();
       } else if (this.state.activeComponent === 'editComment'){
-        return <EditCommentCard toggleActiveComp={this.toggleActiveComp}/>
+        return  <EditCommentCardData loadOneFailFromServer={ this.props.loadOneFailFromServer } id={this.state.activeCommentId} failId={this.props.failId} toggleActiveComp={this.toggleActiveComp}/>
+
       }
     },
     toggleActiveComp: function(name){
       this.setState({activeComponent: name})
       },
     showCommentCard: function(){
-      console.log("this is supposedly not an array", this.props.commentsArray);
+  
       var self = this;
 
       var comments = this.props.commentsArray.map(function(c){
@@ -62,7 +62,6 @@ var CommentList = React.createClass({
         return(
           <div>
            <CommentCard body={b} date={c.date.substr(0,10)} username={user} id={c._id} deleteComment={ self.props.deleteComment } getId={self.getId} toggleActiveComp={self.toggleActiveComp}/> 
-           <EditCommentCardData id={c._id} failId={self.props.failId} toggleActiveComp={self.toggleActiveComp}/>
           </div>
         )
       });

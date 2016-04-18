@@ -20,7 +20,7 @@ Index
 
 var React = require('react');
 var SingleFailCard = require('./SingleFailCard');
-var CommentCard = require('./CommentCard');
+
 
 
 var SingleFailCardData = React.createClass({

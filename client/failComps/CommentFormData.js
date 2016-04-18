@@ -33,7 +33,7 @@ var CommentFormData = React.createClass({
     var data = {
       body: this.state.body
     };
-
+  
     var self = this;
 
     $.ajax({
@@ -42,10 +42,9 @@ var CommentFormData = React.createClass({
       data: data,
       success: function(data){
         self.props.loadOneFailFromServer();
+        self.setState({ body: ''});
       }.bind(this)
-    });
-
-    self.setState({ body: ''});
+    })
   },
   onBodyChange: function(event){
     this.setState({ body: event.target.value });
@@ -53,9 +52,20 @@ var CommentFormData = React.createClass({
 
   render: function(){
     return(
-      <CommentForm handleSubmit={ this.handleSubmit } onBodyChange={ this.onBodyChange } />
+      <CommentForm handleSubmit={ this.handleSubmit } onBodyChange={ this.onBodyChange } body={this.state.body}/>
       )
   }
 });
 
 module.exports = CommentFormData;
+
+/*handleComment: function (e){
+    e.preventDefault();
+    var body = this.state.body.trim();
+    console.log(body, 'this is the comment');
+    if(!body){
+      return;
+    }
+    this.props.handleCommentFormSubmit({ body: body }, this.props.id );
+    this.setState({body: ''});
+  },*/

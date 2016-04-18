@@ -44,14 +44,16 @@ var EditCommentCardData = React.createClass({
     this.loadOneCommentFromServer();
   },
   updateCommentCard: function(comment){
+    console.log('trying to submit comment', comment);
     $.ajax({
       url: '/api/fail/' + this.props.failId + '/comment/' + this.props.id,
       dataType: 'json',
       type: 'PUT',
       data: comment,
       success: function(data){
-        this.loadOneCommentFromServer();
-        this.props.toggleActiveComp('editComment');
+        console.log('calling success', data);
+        this.props.loadOneFailFromServer();
+        this.props.toggleActiveComp('commentCard');
       }.bind(this),
       error: function(xhr, status, err){
         console.error(status, err.toString());
@@ -63,9 +65,11 @@ var EditCommentCardData = React.createClass({
     this.setState({body: event.target.value})
   },
   handleCommentCardEditSubmit: function(event){
+    console.log("this is handleCommentCardEditSubmit!!!!")
     event.preventDefault();
 
       var body = this.state.body;
+      console.log(body, 'this is EDIT COMMENT CARD DATA');
 
       this.updateCommentCard({body: body});
       this.setState({body: ''})
