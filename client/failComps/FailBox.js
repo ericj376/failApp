@@ -10,9 +10,9 @@ Index
       Fail Form
     Single Fail Card Data
       Single Fail Card
-        Comment Form Data
-          Comment Form
         Comment List
+          Comment Form Data
+            Comment Form
           Comment Card
           Edit Comment Card Data
             Edit Comment Card
@@ -46,7 +46,7 @@ var FailBox = React.createClass ({
 
   showComp: function(){
     if(this.state.activeComponent === 'fail'){
-      return <FailListData getId={ this.getId }/>
+      return <FailListData getId={ this.getId } />
 
     } else if (this.state.activeComponent === 'form'){
       return <FailFormData toggleActiveComp={ this.toggleActiveComp } />

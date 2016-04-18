@@ -10,9 +10,9 @@ Index
       Fail Form
     Single Fail Card Data
       Single Fail Card
-        Comment Form Data
-          Comment Form
         Comment List
+          Comment Form Data
+            Comment Form
           Comment Card
           Edit Comment Card Data
             Edit Comment Card

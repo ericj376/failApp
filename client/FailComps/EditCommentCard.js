@@ -10,9 +10,9 @@ Index
       Fail Form
     Single Fail Card Data
       Single Fail Card
-        Comment Form Data
-          Comment Form
         Comment List
+          Comment Form Data
+            Comment Form
           Comment Card
           Edit Comment Card Data
             Edit Comment Card
@@ -24,15 +24,16 @@ var EditCommentCard = React.createClass({
   render: function(){
     return(
         <div className="container">
-        <div className="row col-lg-8 col-lg-offset-4">
-          <form  role='form' >
-            <textarea className="form" rows="6" columns="3" 
-            placeholder='Edit comment here!' id="comment"></textarea><br/>
-              <button type='submit' className="legend button-color">Submit Comment</button>
-          </form>
+          <div className="row col-lg-8 col-lg-offset-4">
+            <form  role='form' onSubmit={this.props.handleCommentCardEditSubmit}>
+              <fieldset className="form-group">
+               <input onChange={this.props.onBodyChange} value={this.props.body} type="text" className="form-control"/>
+              </fieldset>
+              <button className="btn btn-success-outline" type="submit"> Submit </button>
+            </form>
+          </div>
         </div>
-      </div>
-      )
+    )
   }
 });
 
