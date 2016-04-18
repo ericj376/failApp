@@ -10,9 +10,9 @@ Index
       Fail Form
     Single Fail Card Data
       Single Fail Card
-        Comment Form Data
-          Comment Form
         Comment List
+          Comment Form Data
+            Comment Form
           Comment Card
           Edit Comment Card Data
             Edit Comment Card
@@ -20,6 +20,7 @@ Index
 var React = require('react');
 var CommentCard = require('./CommentCard');
 var EditCommentCardData = require('./EditCommentCardData');
+var CommentFormData = require('./CommentFormData');
 
 var CommentList = React.createClass({
     getInitialState: function(){
@@ -69,6 +70,8 @@ var CommentList = React.createClass({
       return(
         <div>
           { comments }
+          <CommentFormData loadOneFailFromServer={ this.props.loadOneFailFromServer } failId={this.props.failId} />
+
         </div>
       )
     },

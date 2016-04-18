@@ -10,13 +10,14 @@ Index
       Fail Form
     Single Fail Card Data
       Single Fail Card
-        Comment Form Data
-          Comment Form
         Comment List
+          Comment Form Data
+            Comment Form
           Comment Card
-        Edit Comment Card Data
-          Edit Comment Card
+          Edit Comment Card Data
+            Edit Comment Card
 */
+
 var React = require('react');
 var CommentForm = require('./commentForm');
 
@@ -37,7 +38,7 @@ var CommentFormData = React.createClass({
     var self = this;
 
     $.ajax({
-      url: '/api/fail/' + this.props.id + '/comment',
+      url: '/api/fail/' + this.props.failId + '/comment',
       method: 'POST',
       data: data,
       success: function(data){
@@ -58,14 +59,3 @@ var CommentFormData = React.createClass({
 });
 
 module.exports = CommentFormData;
-
-/*handleComment: function (e){
-    e.preventDefault();
-    var body = this.state.body.trim();
-    console.log(body, 'this is the comment');
-    if(!body){
-      return;
-    }
-    this.props.handleCommentFormSubmit({ body: body }, this.props.id );
-    this.setState({body: ''});
-  },*/
