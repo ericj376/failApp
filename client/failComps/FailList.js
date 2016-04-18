@@ -29,6 +29,7 @@ function FailList(props) {
 			return(
 			    <FailCard
 			    getId = { props.getId }
+          deleteSingleFail={ props.deleteSingleFail }
 			    id = { item._id }
 					title = { item.title }
 					challenge = { item.challenge } 

@@ -29,7 +29,11 @@ var FailListData = React.createClass({
 			allFails: null
 		}
 	},
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired
+  },
 	loadAllFailsFromServer: function() {
+    console.log("loading fails");
 		var self = this;
 		$.ajax({
 			url: '/api/fail',
@@ -38,11 +42,23 @@ var FailListData = React.createClass({
 		self.setState({ allFails: data });
 	})
 	},
+  deleteSingleFail: function(id){
+    var self = this;
+    if (confirm('Wanna delete?') ) {
+      $.ajax({
+        url: '/api/fail/' + id,
+        method: 'DELETE'
+      }).done(function(){
+        self.loadAllFailsFromServer();
+        self.context.sendNotification("Deleted fail yo!!");
+      })
+    }
+  },
 	componentDidMount: function() {
-		this.loadAllFailsFromServer()
+		this.loadAllFailsFromServer();
 	},
 	render: function() {
-		return this.state.allFails ? <FailList failArray={this.state.allFails} getId={ this.props.getId } /> : null;
+		return this.state.allFails ? <FailList failArray={this.state.allFails} getId={ this.props.getId } deleteSingleFail={this.deleteSingleFail} /> : null;
 	}
 });
 
