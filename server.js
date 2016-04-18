@@ -13,6 +13,7 @@ var comments = require('./models/comments');
 var fail = require('./models/fail');
 var ratings = require('./models/ratings');
 var user = require('./models/user');
+var categoryRouter = require('./routes/category')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -50,7 +51,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
-app.use('/api', failRouter);
+app.use('/api/fail', failRouter);
+app.use('/api/categories', categoryRouter);
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });

@@ -3,7 +3,7 @@ var router = express.Router();
 var Fail = require('../models/fail');
 var Comment = require('../models/comments');
 
-router.route('/fail')
+router.route('/')
 	.post(function(req,res) {
 		var auth = req.user ? req.user._id : "570feef11b7140423ccbddcd"
 		var fail = new Fail ({
@@ -37,7 +37,7 @@ router.route('/fail')
 		})
 	});
 
-router.route('/fail/:fail_id')
+router.route('/:fail_id')
 	.get(function(req, res) {
 		Fail.findById(req.params.fail_id)
 			.populate({
@@ -89,7 +89,7 @@ router.route('/fail/:fail_id')
    })
  });
 
- router.route('/fail/:fail_id/comment')
+ router.route('/:fail_id/comment')
   .get(function(req, res){
     Fail.findById(req.params.fail_id)
     .populate({
@@ -132,7 +132,7 @@ router.route('/fail/:fail_id')
     })
   });
 
-router.route('/fail/:fail_id/comment/:comments_id')
+router.route('/:fail_id/comment/:comments_id')
   .delete(function(req, res ){
     Comment.remove({_id: req.params.comments_id}, function(err, comment){
       if(err){
