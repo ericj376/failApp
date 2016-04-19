@@ -30,9 +30,6 @@ app.use(session({
 }));
 
 
-require('./config/passport')(passport);
-// routes ======================================================================
-require('./routes/user.js')(app, passport);
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Runnng in production mode');
@@ -51,6 +48,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
+require('./config/passport')(passport);
+require('./routes/user.js')(app, passport);
+
+app.use('/public', express.static('public'));
 app.use('/api/fail', failRouter);
 app.use('/api/categories', categoryRouter);
 app.get('/', function(req, res) {
