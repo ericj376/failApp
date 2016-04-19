@@ -17,7 +17,7 @@ var UserInfo = React.createClass({
   render: function(){
     return(
       <div>
-        <div className="panel-body"><img className="fail-img" src={this.props.user.local.image}/>
+        <div className="panel-body"><img src={this.props.user.local.image}/>
         <div>{this.props.user.local.username}</div>
        </div>
       </div>

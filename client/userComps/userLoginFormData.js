@@ -19,6 +19,7 @@ var UserLoginFormData = React.createClass({
             username     : null,
             phone        : null,
             image        : null,
+            categories   : [],
       }
     },
     contextTypes: {
@@ -41,15 +42,31 @@ var UserLoginFormData = React.createClass({
     onImageChange: function(event) {
       this.setState({ image: event.target.value })
     },
+    onCategoryChange: function(event) {
+        this.setState({ category: event.target.value })
+    },
+
+    loadAllCategoriesFromServer: function() {
+        var self = this;
+        $.ajax({
+            url: '/api/categories',
+            method: 'GET'
+        }).done(function(data){
+            self.setState({ categories: data})
+        })
+    },
+    componentDidMount: function(){
+        this.loadAllCategoriesFromServer();
+    },
 
     submitUserToServer: function(e) {
         const {setActiveComponent} = this.props
-        const {email, password, username, phone, image} = this.state;
+        const {email, password, username, phone, image, category} = this.state;
         const {logIn, signUp} = this.context;
 
       e.preventDefault();
         
-        const promise = this.props.login ? logIn(email, password) : signUp(email, password, username, phone, image);
+        const promise = this.props.login ? logIn(email, password) : signUp(email, password, username, phone, image, category);
         promise.done(() => setActiveComponent('home'));
     },
     render: function() {
@@ -61,7 +78,9 @@ var UserLoginFormData = React.createClass({
                 onEmailChange = { this.onEmailChange }
                 onPasswordChange = { this.onPasswordChange }
                 onPhoneChange = { this.onPhoneChange }
-                onImageChange = { this.onImageChange } />
+                onImageChange = { this.onImageChange }
+                onCategoryChange = { this.onCategoryChange } 
+                categories = { this.state.categories } />
         )
     }
 

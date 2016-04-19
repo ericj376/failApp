@@ -105,6 +105,7 @@ module.exports = function(passport) {
                 newUser.local.phone = req.body.phone;
                 newUser.local.image = req.body.image;
                 newUser.local.role = 'guest';
+                newUser.local.category = req.body.category;
 
                 // save the user
                 newUser.save(function(err) {

@@ -9,7 +9,8 @@ var userSchema = mongoose.Schema({
         phone        : String,
         role         : String,
         loggedIn     : Boolean,
-        image        : String
+        image        : String,
+        category     : { type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
     }
 });
 

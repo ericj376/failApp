@@ -9,6 +9,11 @@
 var React = require('react');
 
 function UserLoginForm(props) {
+
+  var categoryList = props.categories.map(cat => (
+    <option value={ cat._id }>{ cat.name }</option>
+    ));
+
         return (
             <div className="jumbotron">
               <div className="container">
@@ -40,6 +45,14 @@ function UserLoginForm(props) {
                       <div className="form-group">
                         <label>User Image</label>
                         <input onChange={ props.onImageChange } name="image" type="text" className="form-control" id=""  />
+                      </div>
+
+                      <div className="form-group">
+                        <label>Category</label>
+                        <select onChange={props.onCategoryChange} className="form-control">
+                        <option>Please Choose</option>
+                          {categoryList}
+                        </select>
                       </div>
                     </div>
                     }

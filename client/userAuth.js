@@ -39,16 +39,17 @@ var UserAuth = React.createClass({
         }
     },
 
-    signUp: function(email, password, username, phone, image) {
+    signUp: function(email, password, username, phone, image, category) {
       const userData = {
         email: email,
         password: password,
         username: username,
         phone: phone,
-        image: image
+        image: image,
+        category: category
       };
-      console.log(userData, "this is userAuth")
       const self = this;
+      console.log("this is category", userData);
       return $.ajax({
         url: '/signup',
         method: 'POST',
@@ -57,7 +58,6 @@ var UserAuth = React.createClass({
         self.setState({user: data.user});
         self.context.sendNotification('you signed up');
       }).fail(function(data) {
-        console.log(data);
         self.context.sendNotification('sign up failed: ' + data.responseText);
       });
     },
@@ -77,7 +77,6 @@ var UserAuth = React.createClass({
         self.setState({user: data.user});
         self.context.sendNotification('you logged in');
       }).fail(function(data) {
-        console.log(data);
         self.context.sendNotification('logged in failed: ' + data.responseText);
       });
     },
