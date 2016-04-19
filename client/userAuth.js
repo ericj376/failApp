@@ -39,14 +39,15 @@ var UserAuth = React.createClass({
         }
     },
 
-    signUp: function(email, password, username, phone) {
+    signUp: function(email, password, username, phone, image) {
       const userData = {
         email: email,
         password: password,
         username: username,
-        phone: phone
+        phone: phone,
+        image: image
       };
-
+      console.log(userData, "this is userAuth")
       const self = this;
       return $.ajax({
         url: '/signup',
