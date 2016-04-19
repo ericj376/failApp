@@ -3,6 +3,33 @@ var router = express.Router();
 var Fail = require('../models/fail');
 var Comment = require('../models/comments');
 
+/*    Fail.find({ category: req.params.cat_id })
+    .populate('category')
+    .exec(function(err, fails) {
+      if(err) {
+        console.log(err)
+      } else {
+        res.json(fails)
+      }
+    })
+    */
+router.route('/categories/:cat_id')
+  .get(function(req, res) {
+    Fail.find({category: req.params.cat_id}).count().exec(function(err, count){
+
+           var random = Math.floor(Math.random() * count);
+
+           Fail.findOne({ category: req.params.cat_id }).skip(random).populate('category').exec(
+             function (err, result) {
+
+               res.json(result)
+
+           });
+
+       });
+
+     });
+
 router.route('/')
 	.post(function(req,res) {
 		var auth = req.user ? req.user._id : "570feef11b7140423ccbddcd"
@@ -170,6 +197,7 @@ router.route('/:fail_id/comment/:comments_id')
         }
       })
   });
+
 
 
  module.exports = router;
