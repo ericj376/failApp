@@ -51,7 +51,6 @@ var App = React.createClass({
     }
   },
   render: function() {
-    console.log("inside index")
     return (
       <div>
         <Notifier>

@@ -33,7 +33,7 @@ var FailListData = React.createClass({
     sendNotification: React.PropTypes.func.isRequired
   },
 	loadAllFailsFromServer: function() {
-    console.log("loading fails");
+   
 		var self = this;
 		$.ajax({
 			url: '/api/fail',

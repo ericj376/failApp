@@ -53,7 +53,7 @@ var NavBar = React.createClass({
         logButtons = <LogIn setActiveComponent= { self.props.setActiveComponent } />;
       } else {
         userDisplay = user.local.username;
-        console.log('this is the logged in users username: ', userDisplay);
+       
         logButtons = <LogOut setActiveComponent= { self.props.setActiveComponent } userDisplay={userDisplay} />;
       };
 
