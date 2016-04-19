@@ -16,18 +16,12 @@ var Comment = require('../models/comments');
 router.route('/categories/:cat_id')
   .get(function(req, res) {
     Fail.find({category: req.params.cat_id}).count().exec(function(err, count){
-
            var random = Math.floor(Math.random() * count);
-
            Fail.findOne({ category: req.params.cat_id }).skip(random).populate('category').exec(
              function (err, result) {
-
                res.json(result)
-
            });
-
        });
-
      });
 
 router.route('/')

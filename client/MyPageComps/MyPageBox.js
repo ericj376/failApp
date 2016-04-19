@@ -13,10 +13,16 @@
 
 var React = require('react');
 var UserInfoData = require('./UserInfoData');
+var DailyChallengeData = require('./DailyChallengeData');
 
 var MyPageBox = React.createClass({
   render: function(){
-    return <UserInfoData/>
+    return (
+      <div>
+        <UserInfoData /> 
+        <DailyChallengeData />
+      </div>
+    )
   }
 });
 
