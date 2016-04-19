@@ -6,12 +6,11 @@ router.route('/')//post a new blog post
     .post(function(req, res) {
         var category = new Category();
         category.name = req.body.name;
-        category.img = req.body.img;
         category.icon = req.body.icon;
 
         category.save(function(err, category){
             if(err){
-                console.log(err);
+                res.status(500).send(err, "Failed on the Post Route");
             } else {
                 res.json(category)
             }
@@ -21,7 +20,7 @@ router.route('/')//post a new blog post
 
         Category.find(function(err, category){
             if(err){
-                console.log(err);
+                res.status(500).send(err, "Failed on the get route");
             } else {
                 res.json(category);
             }

@@ -12,7 +12,7 @@ router.route('/')
 			challenge: req.body.challenge,
 			img: req.body.img,
 			icon: req.body.icon,
-
+      category: req.body.category,
 		});
 		console.log(fail);
 		fail.save(function(err, fail) {
@@ -26,8 +26,8 @@ router.route('/')
 
 	.get(function(req, res) {
 		Fail.find()
-		.populate('author')
 		.populate('comments')
+    .populate('category')
 		.exec(function(err, fails) {
 			if(err) {
 				console.log(err)
@@ -40,7 +40,8 @@ router.route('/')
 router.route('/:fail_id')
 	.get(function(req, res) {
 		Fail.findById(req.params.fail_id)
-			.populate({
+			.populate('category')
+      .populate({
 				path: 'comments',
 				populate: {
 					path: 'user',

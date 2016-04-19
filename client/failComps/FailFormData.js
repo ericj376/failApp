@@ -27,15 +27,11 @@ var FailFormData = React.createClass({
       title: null,
       challenge: null,
       img: null,
-      rating: null,
       category: null,
     }
   },
   onTitleChange: function(event){
     this.setState({ title: event.target.value})
-  },
-  onRatingChange: function(event){
-    this.setState({ rating: event.target.value})
   },
   onChallengeChange: function(event){
     this.setState({ challenge: event.target.value})
@@ -52,7 +48,6 @@ var FailFormData = React.createClass({
       title: this.state.title,
       challenge: this.state.challenge,
       img: this.state.img,
-      rating: this.state.rating,
       category: this.state.category,
     };
     var self = this;
@@ -62,7 +57,7 @@ var FailFormData = React.createClass({
       method: 'POST',
       data: failData
     }).done(function(data){
-      self.props.toggleActiveComp('blog');
+      self.props.toggleActiveComp('fail');
     });
 
     this.setState({title:'', img:'', challenge:'', rating:'', category:''});
@@ -71,7 +66,7 @@ var FailFormData = React.createClass({
   render: function(){
     return(
       <div>
-        <FailForm submitFailToServer={this.submitFailToServer} onTitleChange={this.onTitleChange} onChallengeChange={this.onChallengeChange} onImgChange={this.onImgChange} onRatingChange={this.onRatingChange} onCategoryChange={this.onCategoryChange} {...this.state} />
+        <FailForm submitFailToServer={this.submitFailToServer} onTitleChange={this.onTitleChange} onChallengeChange={this.onChallengeChange} onImgChange={this.onImgChange} onCategoryChange={this.onCategoryChange} categories={this.props.categories} {...this.state} />
       </div>
     )
   }
