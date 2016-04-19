@@ -40,7 +40,7 @@ var UserInfoData = React.createClass({
 
 
   render: function(){
-    return <UserInfo user={this.state.user} loadUserFromServer={this.loadUserFromServer}/>
+    return <UserInfo user={this.state.user ? this.state.user : null} loadUserFromServer={this.loadUserFromServer}/>
   }
 
 });

@@ -48,6 +48,11 @@ router.route('/:fail_id')
 					select: 'local.username'
 				}
 			})
+      .populate({
+        path: 'ratings',
+        select: 'ratingScale',
+      
+      })
 			.exec(function(err, fail) {
 				if (err) {
 					console.log(err)

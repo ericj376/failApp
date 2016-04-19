@@ -14,6 +14,7 @@ var fail = require('./models/fail');
 var ratings = require('./models/ratings');
 var user = require('./models/user');
 var categoryRouter = require('./routes/category')
+var ratingsRouter = require('./routes/ratings')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -54,6 +55,8 @@ require('./routes/user.js')(app, passport);
 app.use('/public', express.static('public'));
 app.use('/api/fail', failRouter);
 app.use('/api/categories', categoryRouter);
+app.use('/api/ratings', ratingsRouter);
+
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });

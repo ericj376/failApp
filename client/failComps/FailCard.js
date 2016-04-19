@@ -19,9 +19,11 @@ Index
 */
 
 var React = require('react');
+var Rating = require('react-rating');
 
 function FailCard(props) {
   var categoryName = props.category ? props.category.name : "no category";
+  var ratingsFail = props.ratings ? props.ratings.ratingScale : "no rating";
 	return(
 		<div className="card card-size">
 			<div className="card-body"><img className="fail-img" src={props.img}/>
@@ -45,8 +47,9 @@ function FailCard(props) {
           </div>
           <div className="textPosition">
             <p>{props.challenge}</p>
-            
-            <p>{props.rating}</p>
+          </div>
+          <div className="rating-position"> 
+           <Rating />
 				  </div>
         </div>
 			</div>
