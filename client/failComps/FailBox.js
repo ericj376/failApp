@@ -31,6 +31,7 @@ var FailBox = React.createClass ({
     return{
       activeComponent: 'fail',
       activeFailId: null,
+      categories: [],
     }
   
   },
@@ -49,10 +50,10 @@ var FailBox = React.createClass ({
       return <FailListData getId={ this.getId } />
 
     } else if (this.state.activeComponent === 'form'){
-      return <FailFormData toggleActiveComp={ this.toggleActiveComp } />
+      return <FailFormData toggleActiveComp={ this.toggleActiveComp } categories={ this.state.categories } />
 
     } else if (this.state.activeComponent === 'oneFail'){
-      return <SingleFailCardData id={this.state.activeFailId}  />
+      return <SingleFailCardData id={ this.state.activeFailId }  />
 
     } else if (this.state.activeComponent === 'editFail') {
       return <EditFailCardData id={ this.state.activeFailId } toggleActiveComp={ this.toggleActiveComp } />
@@ -62,6 +63,17 @@ var FailBox = React.createClass ({
     }
   },
   componentDidMount: function(){
+    this.loadAllCategoriesFromServer();
+  },
+  loadAllCategoriesFromServer: function() {
+    console.log("loading fail categories");
+    var self = this;
+    $.ajax({
+      url: '/api/categories',
+      method: 'GET'
+    }).done(function(data){
+    self.setState({ categories: data });
+  })
   },
   toggleActiveComp: function(name){
     this.setState({activeComponent: name})

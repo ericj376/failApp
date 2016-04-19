@@ -21,18 +21,34 @@ Index
 var React = require('react');
 
 function FailCard(props) {
+  var categoryName = props.category ? props.category.name : "no category";
 	return(
-		<div className="panel-default">
-			<div className="panel-body"><img className="fail-img" src={props.img}/>
-				<div className="panel-body">
-					{props.title}
-					{props.challenge}
-					{props.category}
-					{props.rating}
-					<button onClick={props.getId.bind(null, 'showOne', props.id)} className="btn btn-primary"> View More </button>
-					<button onClick={props.getId.bind(null, 'editOne', props.id)} className="btn btn-primary"> Edit </button>
-          <button onClick={props.deleteSingleFail.bind(null, props.id)} className="btn btn-primary"> Delete </button>
-				</div>
+		<div className="card card-size">
+			<div className="card-body"><img className="fail-img" src={props.img}/>
+				<div className="card-body card-flex">
+  				<div className="buttonPosition">	
+            <div>
+              <button onClick={props.getId.bind(null, 'showOne', props.id)} className="btnSpace btn btn-primary"> View More </button>
+  					</div>
+            <div>
+              <button onClick={props.getId.bind(null, 'editOne', props.id)} className="btnSpace btn btn-primary"> Edit </button>
+            </div>
+            <div> 
+              <button onClick={props.deleteSingleFail.bind(null, props.id)} className="btnSpace btn btn-primary"> Delete </button>
+            </div>
+          </div>
+          <div className="titlePosition">
+            <p>{props.title}</p>
+          </div>
+          <div className="categoryPosition">
+            <p>Category: {categoryName}</p>
+          </div>
+          <div className="textPosition">
+            <p>{props.challenge}</p>
+            
+            <p>{props.rating}</p>
+				  </div>
+        </div>
 			</div>
 		</div>
 		)

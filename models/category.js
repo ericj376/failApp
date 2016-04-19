@@ -3,7 +3,6 @@ var Schema   = mongoose.Schema;
 
 var CategorySchema = new Schema({
   name: String,
-  image: String,
   icon: String,
 });
 
