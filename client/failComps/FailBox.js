@@ -66,7 +66,6 @@ var FailBox = React.createClass ({
     this.loadAllCategoriesFromServer();
   },
   loadAllCategoriesFromServer: function() {
-    console.log("loading fail categories");
     var self = this;
     $.ajax({
       url: '/api/categories',
