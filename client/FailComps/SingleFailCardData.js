@@ -49,14 +49,25 @@ var SingleFailCardData = React.createClass({
       method: 'GET',
     };
     $.ajax(ajaxProps).done(function(data){
-      self.setState({oneFail: data})
+      self.setState({
+        oneFail: data,
+        ratingAverage: self.getAverage(data.ratings)
+      })
     })
+  },
+  getAverage: function(rate){
+   
+    var average = rate.reduce((prev, cur) => prev + cur.ratingScale, 0) / rate.length;
+
+    console.log(rate, average, "trying to find rate and average in getAverage"); 
+    
+    return average;
   },
   componentDidMount: function(){
     this.loadOneFailFromServer();
   },
   render: function(){
-    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } deleteComment={ this.deleteComment } /> : null;
+    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } deleteComment={ this.deleteComment } average={ this.state.ratingAverage } /> : null;
   }
 
 });

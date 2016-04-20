@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var RatingSchema = new Schema({
 	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	fail: { type: mongoose.Schema.Types.ObjectId, ref: 'Fail'},
-	img: String
+  ratingScale: Number
 });
 
-module.exports = mongoose.model('Rating', RatingSchema);
+module.exports = mongoose.model('Ratings', RatingSchema);

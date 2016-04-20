@@ -6,7 +6,7 @@ var FailSchema = new Schema({
 	challenge: String,
 	img: String,
 	icon: String,
-	ratings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }],
+	ratings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Ratings' }],
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
 	comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
 });

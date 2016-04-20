@@ -36,7 +36,7 @@ function FailList(props) {
 					rating = { item.rating }
 					img = { item.img }
 					category = { item.category }
-					rating = { item.rating } />
+					ratings = { item.ratings } />
 				);
 		})
 		return (
