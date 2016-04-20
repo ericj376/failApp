@@ -4,26 +4,27 @@ Index
     Fail List Data
       Fail List
         Fail Card
+      Single Fail Card Data
+        Single Fail Card
+          Comment List
+            Comment Form Data
+              Comment Form
+            Comment Card
+            Edit Comment Card Data
+              Edit Comment Card
     Edit Fail Card Data
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-    Single Fail Card Data
-      Single Fail Card
-        Comment List
-          Comment Form Data
-            Comment Form
-          Comment Card
-          Edit Comment Card Data
-            Edit Comment Card
 */
 
 
 var React = require('react');
 var FailList = require('./FailList');
+var SingleFailCardData = require('./SingleFailCardData');
+
 
 var FailListData = React.createClass({
-
 	getInitialState: function() {
 		return {
 			allFails: null
@@ -32,15 +33,14 @@ var FailListData = React.createClass({
   contextTypes: {
     sendNotification: React.PropTypes.func.isRequired
   },
-	loadAllFailsFromServer: function() {
-   
+	loadAllFailsFromServer: function() {  
 		var self = this;
 		$.ajax({
 			url: '/api/fail',
 			method: 'GET'
 		}).done(function(data){
-		self.setState({ allFails: data });
-	})
+		  self.setState({ allFails: data });
+	  })
 	},
   deleteSingleFail: function(id){
     var self = this;
@@ -58,7 +58,20 @@ var FailListData = React.createClass({
 		this.loadAllFailsFromServer();
 	},
 	render: function() {
-		return this.state.allFails ? <FailList failArray={this.state.allFails} getId={ this.props.getId } deleteSingleFail={this.deleteSingleFail} /> : null;
+    console.log("trying to render", this.state.allFails);
+    var renderingStuff = null; 
+    if (this.state.allFails && !this.props.activeFailId) {
+      console.log("another Console.log in the render", this.state.allFails);
+      renderingStuff = (
+          <FailList failArray={this.state.allFails} getId={ this.props.getId } deleteSingleFail={this.deleteSingleFail} />
+        )
+    } else if ( this.props.activeFailId ) {
+      console.log('maybe we got here? maybe we didnt?');
+      renderingStuff = (
+          <SingleFailCardData id={ this.props.activeFailId } />
+        )
+    } 
+		return renderingStuff;
 	}
 });
 

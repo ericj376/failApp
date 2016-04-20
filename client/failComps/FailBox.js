@@ -4,18 +4,19 @@ Index
     Fail List Data
       Fail List
         Fail Card
+      Single Fail Card Data
+        Single Fail Card
+          Comment List
+            Comment Form Data
+              Comment Form
+            Comment Card
+            Edit Comment Card Data
+              Edit Comment Card
     Edit Fail Card Data
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-    Single Fail Card Data
-      Single Fail Card
-        Comment List
-          Comment Form Data
-            Comment Form
-          Comment Card
-          Edit Comment Card Data
-            Edit Comment Card
+        
 */
 
 
@@ -37,6 +38,7 @@ var FailBox = React.createClass ({
   },
   getId: function(type, id){
     if(type === 'showOne'){
+      console.log("showOne", id);
       return this.setState({ activeFailId: id, activeComponent: 'oneFail' })
     } else if (type === 'editOne'){
       return this.setState({ activeFailId : id, activeComponent: 'editFail' })
@@ -46,14 +48,12 @@ var FailBox = React.createClass ({
   },
 
   showComp: function(){
-    if(this.state.activeComponent === 'fail'){
-      return <FailListData getId={ this.getId } />
+    if(this.state.activeComponent === 'fail' || this.state.activeComponent === 'oneFail'){
+      console.log("tring to show comp", this.state.activeFailId);
+      return <FailListData activeFailId={ this.state.activeFailId } getId={ this.getId } />
 
     } else if (this.state.activeComponent === 'form'){
       return <FailFormData toggleActiveComp={ this.toggleActiveComp } categories={ this.state.categories } />
-
-    } else if (this.state.activeComponent === 'oneFail'){
-      return <SingleFailCardData id={ this.state.activeFailId }  />
 
     } else if (this.state.activeComponent === 'editFail') {
       return <EditFailCardData id={ this.state.activeFailId } toggleActiveComp={ this.toggleActiveComp } />
