@@ -28,7 +28,6 @@ var UserInfoData = React.createClass({
     url: '/getUser',
     method: 'GET'
   }).done(function(data){
-    console.log(data, "this is loadUserFromServer" )
     self.setState({ user: data});
   })
  },

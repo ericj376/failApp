@@ -15,10 +15,12 @@ var React = require('react');
 
 var UserInfo = React.createClass({
   render: function(){
+    var image = this.props.user ? this.props.user.local.image : "";
+    var username = this.props.user ? this.props.user.local.username : "";
     return(
       <div>
-        <div className="panel-body"><img src={this.props.user.local.image}/>
-        <div>{this.props.user.local.username}</div>
+        <div className="panel-body"><img src={image}/>
+        <div>{username}</div>
        </div>
       </div>
       )

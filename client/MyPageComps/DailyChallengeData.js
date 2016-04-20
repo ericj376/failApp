@@ -18,21 +18,26 @@ var DailyChallengeData = React.createClass({
   getInitialState: function(){
     return{
       oneFail: null,
+      user: null,
     }
   },
 
   loadOneFailByCategoryFromServer: function(){
-
-    console.log("loadOneFailByCategoryFromServer is here.")
- 
     var self = this;
+
     $.ajax({
-      url: '/api/fail/categories/5716893221d6892c05fca582',
+      url: '/getUser',
       method: 'GET'
     }).done(function(data){
-      console.log(data, "this is loadOneFailByCategoryFromServer");
-      self.setState({oneFail: data});
-    })
+      self.setState({ user: data});  
+      var categoryId = self.state.user.local.category;
+      $.ajax({
+        url: '/api/fail/categories/' + categoryId,
+        method: 'GET'
+      }).done(function(data){
+        self.setState({oneFail: data});
+      })
+    }) 
   },
   componentDidMount: function() {
     this.loadOneFailByCategoryFromServer();
