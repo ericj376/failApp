@@ -22,7 +22,6 @@ var React = require('react');
 var SingleFailCard = require('./SingleFailCard');
 
 
-
 var SingleFailCardData = React.createClass({
   getInitialState: function(){
     return{
@@ -30,7 +29,6 @@ var SingleFailCardData = React.createClass({
       allComments: null,
     }
   },
-
   deleteComment: function(id){
     var self = this;
     $.ajax({
@@ -40,8 +38,7 @@ var SingleFailCardData = React.createClass({
       alert('comment deleted');
       self.loadOneFailFromServer();
     })
-  },
-    
+  }, 
   loadOneFailFromServer: function(){
     var self = this;
     const ajaxProps = {
@@ -51,17 +48,9 @@ var SingleFailCardData = React.createClass({
     $.ajax(ajaxProps).done(function(data){
       self.setState({
         oneFail: data,
-        ratingAverage: self.getAverage(data.ratings)
+        ratingAverage: self.props.getAverage(data.ratings)
       })
     })
-  },
-  getAverage: function(rate){
-   
-    var average = rate.reduce((prev, cur) => prev + cur.ratingScale, 0) / rate.length;
-
-    console.log(rate, average, "trying to find rate and average in getAverage"); 
-    
-    return average;
   },
   componentDidMount: function(){
     this.loadOneFailFromServer();
@@ -69,7 +58,6 @@ var SingleFailCardData = React.createClass({
   render: function(){
     return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } deleteComment={ this.deleteComment } average={ this.state.ratingAverage } /> : null;
   }
-
 });
 
 module.exports = SingleFailCardData;

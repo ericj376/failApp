@@ -16,7 +16,6 @@ Index
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-        
 */
 
 
@@ -34,7 +33,6 @@ var FailBox = React.createClass ({
       activeFailId: null,
       categories: [],
     }
-  
   },
   getId: function(type, id){
     if(type === 'showOne'){
@@ -46,11 +44,12 @@ var FailBox = React.createClass ({
       return null
     }
   },
-
   showComp: function(){
     if(this.state.activeComponent === 'fail' || this.state.activeComponent === 'oneFail'){
+      var onlyOne = this.state.activeComponent === 'oneFail';
+
       console.log("tring to show comp", this.state.activeFailId);
-      return <FailListData activeFailId={ this.state.activeFailId } getId={ this.getId } />
+      return <FailListData activeFailId={ this.state.activeFailId } getId={ this.getId } onlyOne={onlyOne} />
 
     } else if (this.state.activeComponent === 'form'){
       return <FailFormData toggleActiveComp={ this.toggleActiveComp } categories={ this.state.categories } />
@@ -71,8 +70,8 @@ var FailBox = React.createClass ({
       url: '/api/categories',
       method: 'GET'
     }).done(function(data){
-    self.setState({ categories: data });
-  })
+        self.setState({ categories: data });
+    })
   },
   toggleActiveComp: function(name){
     this.setState({activeComponent: name})

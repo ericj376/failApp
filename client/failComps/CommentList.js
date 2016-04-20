@@ -4,19 +4,20 @@ Index
     Fail List Data
       Fail List
         Fail Card
+      Single Fail Card Data
+        Single Fail Card
+          Comment List
+            Comment Form Data
+              Comment Form
+            Comment Card
+            Edit Comment Card Data
+              Edit Comment Card
     Edit Fail Card Data
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-    Single Fail Card Data
-      Single Fail Card
-        Comment List
-          Comment Form Data
-            Comment Form
-          Comment Card
-          Edit Comment Card Data
-            Edit Comment Card
 */
+
 var React = require('react');
 var CommentCard = require('./CommentCard');
 var EditCommentCardData = require('./EditCommentCardData');
@@ -30,7 +31,6 @@ var CommentList = React.createClass({
       }
     },
     getId: function(type, id){
-      
       if(type === 'showOneComment'){
         return this.setState({ activeCommentId: id, activeComponent: 'commentCard'})
       } else if (type === 'editOneComment'){
@@ -46,14 +46,12 @@ var CommentList = React.createClass({
         return this.showCommentCard();
       } else if (this.state.activeComponent === 'editComment'){
         return  <EditCommentCardData loadOneFailFromServer={ this.props.loadOneFailFromServer } id={this.state.activeCommentId} failId={this.props.failId} toggleActiveComp={this.toggleActiveComp}/>
-
       }
     },
     toggleActiveComp: function(name){
       this.setState({activeComponent: name})
       },
     showCommentCard: function(){
-  
       var self = this;
 
       var comments = this.props.commentsArray.map(function(c){
@@ -66,16 +64,13 @@ var CommentList = React.createClass({
           </div>
         )
       });
-
       return(
         <div>
           { comments }
           <CommentFormData loadOneFailFromServer={ this.props.loadOneFailFromServer } failId={this.props.failId} />
-
         </div>
       )
     },
-
     render: function(){
       return this.showComp(); 
     },

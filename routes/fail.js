@@ -28,6 +28,10 @@ router.route('/')
 		Fail.find()
 		.populate('comments')
     .populate('category')
+    .populate({
+        path: 'ratings',
+        select: 'ratingScale',
+    })
 		.exec(function(err, fails) {
 			if(err) {
 				console.log(err)
@@ -51,7 +55,6 @@ router.route('/:fail_id')
       .populate({
         path: 'ratings',
         select: 'ratingScale',
-      
       })
 			.exec(function(err, fail) {
 				if (err) {

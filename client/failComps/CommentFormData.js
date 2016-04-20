@@ -4,20 +4,19 @@ Index
     Fail List Data
       Fail List
         Fail Card
+      Single Fail Card Data
+        Single Fail Card
+          Comment List
+            Comment Form Data
+              Comment Form
+            Comment Card
+            Edit Comment Card Data
+              Edit Comment Card
     Edit Fail Card Data
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-    Single Fail Card Data
-      Single Fail Card
-        Comment List
-          Comment Form Data
-            Comment Form
-          Comment Card
-          Edit Comment Card Data
-            Edit Comment Card
 */
-
 var React = require('react');
 var CommentForm = require('./commentForm');
 
@@ -27,14 +26,12 @@ var CommentFormData = React.createClass({
       body: null,
     }
   },
-
   handleSubmit: function(event){
     event.preventDefault();
 
     var data = {
       body: this.state.body
     };
-  
     var self = this;
 
     $.ajax({
@@ -50,11 +47,10 @@ var CommentFormData = React.createClass({
   onBodyChange: function(event){
     this.setState({ body: event.target.value });
   },
-
   render: function(){
     return(
       <CommentForm handleSubmit={ this.handleSubmit } onBodyChange={ this.onBodyChange } body={this.state.body}/>
-      )
+    )
   }
 });
 

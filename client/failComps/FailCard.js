@@ -4,18 +4,18 @@ Index
     Fail List Data
       Fail List
         Fail Card
+      Single Fail Card Data
+        Single Fail Card
+          Comment List
+            Comment Form Data
+              Comment Form
+            Comment Card
+            Edit Comment Card Data
+              Edit Comment Card
     Edit Fail Card Data
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-    Single Fail Card Data
-      Single Fail Card
-        Comment List
-          Comment Form Data
-            Comment Form
-          Comment Card
-          Edit Comment Card Data
-            Edit Comment Card
 */
 
 var React = require('react');
@@ -49,12 +49,12 @@ function FailCard(props) {
             <p>{props.challenge}</p>
           </div>
           <div className="rating-position"> 
-           <Rating readonly={true}/>
+            <Rating readonly={true} initialRate={props.average}/>
 				  </div>
         </div>
 			</div>
 		</div>
-		)
+	)
 };
 
 module.exports = FailCard;
