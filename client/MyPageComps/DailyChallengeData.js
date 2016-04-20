@@ -6,6 +6,7 @@
           UserInfo
         DailyChallengeData
           DailyChallenge
+          DailyChallengeDetail
         CompletedChallengesData
           CompletedChallengesList
             CompletedChallengesCard
@@ -13,12 +14,23 @@
 
 var React = require('react');
 var DailyChallenge = require('./DailyChallenge');
+var DailyChallengeDetail = require('./DailyChallengeDetail');
 
 var DailyChallengeData = React.createClass({
   getInitialState: function(){
     return{
       oneFail: null,
       user: null,
+      oneFailId: null,
+      activeComponent: null,
+    }
+  },
+  getId: function(type, id){
+    if(type === 'showOne'){
+      console.log("this is getId", id);
+      return this.setState({oneFailId: id, activeComponent: 'oneFail'})
+    } else {
+      return null
     }
   },
 
@@ -35,15 +47,26 @@ var DailyChallengeData = React.createClass({
         url: '/api/fail/categories/' + categoryId,
         method: 'GET'
       }).done(function(data){
-        self.setState({oneFail: data});
+        self.setState({
+          oneFail: data,
+          oneFailId: data._id
+        });
       })
     }) 
   },
   componentDidMount: function() {
     this.loadOneFailByCategoryFromServer();
   },
+
   render: function() {
-    return this.state.oneFail ? <DailyChallenge loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={this.state.oneFail} /> : null;
+    if(this.state.activeComponent === 'oneFail'){
+      console.log("this is showComp")
+      return <DailyChallengeDetail />
+    } else if (this.state.oneFail) {
+      return <DailyChallenge id={this.state.oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={this.state.oneFail} getId={ this.getId } />;
+    } else {
+      return null;
+    }
   }
 
 

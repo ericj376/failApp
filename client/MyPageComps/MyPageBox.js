@@ -6,11 +6,11 @@
           UserInfo
         DailyChallengeData
           DailyChallenge
+          DailyChallengeDetail
         CompletedChallengesData
           CompletedChallengesList
             CompletedChallengesCard
 */
-
 var React = require('react');
 var UserInfoData = require('./UserInfoData');
 var DailyChallengeData = require('./DailyChallengeData');

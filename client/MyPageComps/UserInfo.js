@@ -6,6 +6,7 @@
           UserInfo
         DailyChallengeData
           DailyChallenge
+          DailyChallengeDetail
         CompletedChallengesData
           CompletedChallengesList
             CompletedChallengesCard
