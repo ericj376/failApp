@@ -20,6 +20,9 @@ Index
 var React = require('react');
 
 function EditFailCardForm(props) {
+  var categoryList = props.categories.map(cat => (
+    <option value={ cat._id }>{ cat.name}</option>
+    ));
   return(
     <div className="container myContainer">
      <form onSubmit={ props.handleFailEditSubmit }>
@@ -41,8 +44,11 @@ function EditFailCardForm(props) {
          <input onChange={ props.onRatingChange } value={ props.rating }  className="form-control"/>
        </fieldset>
        <fieldset className="form-group">
-         <label>category</label>
-         <input onChange={ props.onCategoryChange } value={ props.category }  className="form-control"/>
+         <label htmlFor="exampleSelect1">categories</label>
+          <select onChange={ props.onCategoryChange } value={ props.category }  className="form-control">
+             <option>Please Choose</option>
+             {categoryList}
+          </select>
        </fieldset>
        <button className="btn btn-success-outline" type="submit"> Submit </button>
      </form>

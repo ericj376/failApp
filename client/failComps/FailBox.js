@@ -56,7 +56,7 @@ var FailBox = React.createClass ({
       return <SingleFailCardData id={ this.state.activeFailId }  />
 
     } else if (this.state.activeComponent === 'editFail') {
-      return <EditFailCardData id={ this.state.activeFailId } toggleActiveComp={ this.toggleActiveComp } />
+      return <EditFailCardData id={ this.state.activeFailId } toggleActiveComp={ this.toggleActiveComp } categories={ this.state.categories }/>
 
     } else {
       throw new Error("Invalid activeComponent", this.state.activeComponent)

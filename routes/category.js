@@ -27,4 +27,18 @@ router.route('/')//post a new blog post
         })
     })
 
+router.route('/:category_id')
+    .delete(function(req, res){
+        Category.remove({_id: req.params.category_id}, function(err, category){
+            if(err) {
+                console.log(err);
+            } else {
+                res.json({ title: 'category was successfully deleted!'});
+            }
+        })
+    });
+
+
+
+
 module.exports = router;

@@ -96,7 +96,7 @@ var EditFailCardData = React.createClass({
  render: function(){
   return (
     <div>
-    <EditFailCardForm handleFailEditSubmit={this.handleFailEditSubmit} onTitleChange={this.onTitleChange} onChallengeChange={this.onChallengeChange} onImgChange={this.onImgChange} onRatingChange={this.onRatingChange} onCategoryChange={this.onCategoryChange} {...this.state}/>
+    <EditFailCardForm categories={this.props.categories} handleFailEditSubmit={this.handleFailEditSubmit} onTitleChange={this.onTitleChange} onChallengeChange={this.onChallengeChange} onImgChange={this.onImgChange} onRatingChange={this.onRatingChange} onCategoryChange={this.onCategoryChange} {...this.state}/>
     </div>
     )
  }
