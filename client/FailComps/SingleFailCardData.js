@@ -28,7 +28,6 @@ var SingleFailCardData = React.createClass({
     return{
       oneFail: null,
       allComments: null,
-      ratingAverage: null,
     }
   },
 
@@ -50,18 +49,18 @@ var SingleFailCardData = React.createClass({
       method: 'GET',
     };
     $.ajax(ajaxProps).done(function(data){
-      self.setState({oneFail: data})
-      self.getAverage(data.ratings)
+      self.setState({
+        oneFail: data,
+        ratingAverage: self.getAverage(data.ratings)
+      })
     })
   },
   getAverage: function(rate){
-    var total = 0;
+   
+    var average = rate.reduce((prev, cur) => prev + cur.ratingScale, 0) / rate.length;
+
+    console.log(rate, average, "trying to find rate and average in getAverage"); 
     
-    for(var i = 0; i < rate.length; i++) {
-      total += rate[i];
-    }
-      var average = total / rate.length;
-    console.log(average, "trying to get the avg in getAverage");
     return average;
   },
   componentDidMount: function(){

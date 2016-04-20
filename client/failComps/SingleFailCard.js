@@ -36,7 +36,7 @@ var SingleFailCard = React.createClass({
           <p>{this.props.oneFail.title}</p>
           <img src={this.props.oneFail.img}/>
           <p>{this.props.oneFail.challenge}</p>
-          <Rating initialRate={this.props.average}/>
+          <Rating readonly={true} initialRate={this.props.average}/>
           <p>{categoryName}</p>    
           <CommentList loadOneFailFromServer={ this.props.loadOneFailFromServer } failId={ this.props.oneFail._id } commentsArray={this.props.oneFail.comments} deleteComment={ this.props.deleteComment } getId={this.props.getId}/>
         </div>

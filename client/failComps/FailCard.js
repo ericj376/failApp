@@ -49,7 +49,7 @@ function FailCard(props) {
             <p>{props.challenge}</p>
           </div>
           <div className="rating-position"> 
-           <Rating readonly={true} />
+           <Rating readonly={true}/>
 				  </div>
         </div>
 			</div>
