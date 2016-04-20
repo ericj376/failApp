@@ -61,7 +61,7 @@ var DailyChallengeData = React.createClass({
   render: function() {
     if(this.state.activeComponent === 'oneFail'){
       console.log("this is showComp")
-      return <DailyChallengeDetail />
+      return <DailyChallengeDetail oneFail={this.state.oneFail} />
     } else if (this.state.oneFail) {
       return <DailyChallenge id={this.state.oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={this.state.oneFail} getId={ this.getId } />;
     } else {
