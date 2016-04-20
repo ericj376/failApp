@@ -4,18 +4,18 @@ Index
     Fail List Data
       Fail List
         Fail Card
+      Single Fail Card Data
+        Single Fail Card
+          Comment List
+            Comment Form Data
+              Comment Form
+            Comment Card
+            Edit Comment Card Data
+              Edit Comment Card
     Edit Fail Card Data
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-    Single Fail Card Data
-      Single Fail Card
-        Comment List
-          Comment Form Data
-            Comment Form
-          Comment Card
-          Edit Comment Card Data
-            Edit Comment Card
 */
 
 var React = require('react');
@@ -27,7 +27,6 @@ var EditCommentCardData = React.createClass({
       body: null,
     }
   },
-  
   loadOneCommentFromServer: function(){
     console.log("loading a comment");
     var self = this;
@@ -60,7 +59,6 @@ var EditCommentCardData = React.createClass({
       }.bind(this)
     });
   },
-
   onBodyChange: function(event){
     this.setState({body: event.target.value})
   },
@@ -74,7 +72,6 @@ var EditCommentCardData = React.createClass({
       this.updateCommentCard({body: body});
       this.setState({body: ''})
   },
-
   render: function(){
     return(
       <EditCommentCard handleCommentCardEditSubmit={this.handleCommentCardEditSubmit} onBodyChange={this.onBodyChange} body={this.state.body}/>

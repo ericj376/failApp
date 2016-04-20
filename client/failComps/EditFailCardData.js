@@ -4,18 +4,18 @@ Index
     Fail List Data
       Fail List
         Fail Card
+      Single Fail Card Data
+        Single Fail Card
+          Comment List
+            Comment Form Data
+              Comment Form
+            Comment Card
+            Edit Comment Card Data
+              Edit Comment Card
     Edit Fail Card Data
       Edit Fail Card Form
     Fail Form Data
       Fail Form
-    Single Fail Card Data
-      Single Fail Card
-        Comment List
-          Comment Form Data
-            Comment Form
-          Comment Card
-          Edit Comment Card Data
-            Edit Comment Card
 */
 var React = require('react');
 var EditFailCardForm = require('./EditFailCardForm');
@@ -63,7 +63,6 @@ var EditFailCardData = React.createClass({
       }.bind(this)
     });
   },
-
  onTitleChange: function(event){
   this.setState({title: event.target.value})
  },
@@ -88,19 +87,16 @@ var EditFailCardData = React.createClass({
     var rating = this.state.rating;
     var category = this.state.category;
 
-
     this.updateFailForm({ title: title, challenge: challenge, img: img, rating: rating, category: category });
     this.setState({ title: '', challenge: '', img: '', rating: '', category: ''})
  },
-
  render: function(){
   return (
     <div>
-    <EditFailCardForm categories={this.props.categories} handleFailEditSubmit={this.handleFailEditSubmit} onTitleChange={this.onTitleChange} onChallengeChange={this.onChallengeChange} onImgChange={this.onImgChange} onRatingChange={this.onRatingChange} onCategoryChange={this.onCategoryChange} {...this.state}/>
+      <EditFailCardForm categories={this.props.categories} handleFailEditSubmit={this.handleFailEditSubmit} onTitleChange={this.onTitleChange} onChallengeChange={this.onChallengeChange} onImgChange={this.onImgChange} onRatingChange={this.onRatingChange} onCategoryChange={this.onCategoryChange} {...this.state}/>
     </div>
     )
- }
-
+  }
 });
 
 
