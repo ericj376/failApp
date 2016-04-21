@@ -46,5 +46,4 @@ module.exports = function(app, passport) {
       res.json( {user: 'no user'})
     }
   })
-
 };

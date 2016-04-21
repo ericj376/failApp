@@ -39,7 +39,6 @@ var FailListData = React.createClass({
 			url: '/api/fail',
 			method: 'GET'
 		}).done(function(data){
-      console.log("trying to fin data", data);
 		  self.setState({ allFails: data });
 	  })
 	},
@@ -62,20 +61,16 @@ var FailListData = React.createClass({
    
     var average = rate.length === 0 ? 0 : rate.reduce((prev, cur) => prev + cur.ratingScale, 0) / rate.length;
 
-    console.log(rate, average, "trying to find rate and average in getAverage"); 
     
     return average;
   },
 	render: function() {
-    console.log("trying to render", this.state.allFails);
     var renderingStuff = null; 
     if (this.state.allFails && !this.props.onlyOne) {
-      console.log("another Console.log in the render", this.state.allFails);
       renderingStuff = (
           <FailList failArray={this.state.allFails} getId={ this.props.getId } deleteSingleFail={this.deleteSingleFail} getAverage={this.getAverage} />
       )
     } else if ( this.props.onlyOne ) {
-      console.log('maybe we got here? maybe we didnt?');
       renderingStuff = (
           <SingleFailCardData getAverage={this.getAverage} id={ this.props.activeFailId } />
       )

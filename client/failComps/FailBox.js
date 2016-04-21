@@ -36,7 +36,6 @@ var FailBox = React.createClass ({
   },
   getId: function(type, id){
     if(type === 'showOne'){
-      console.log("showOne", id);
       return this.setState({ activeFailId: id, activeComponent: 'oneFail' })
     } else if (type === 'editOne'){
       return this.setState({ activeFailId : id, activeComponent: 'editFail' })
@@ -48,7 +47,6 @@ var FailBox = React.createClass ({
     if(this.state.activeComponent === 'fail' || this.state.activeComponent === 'oneFail'){
       var onlyOne = this.state.activeComponent === 'oneFail';
 
-      console.log("tring to show comp", this.state.activeFailId);
       return <FailListData activeFailId={ this.state.activeFailId } getId={ this.getId } onlyOne={onlyOne} />
 
     } else if (this.state.activeComponent === 'form'){

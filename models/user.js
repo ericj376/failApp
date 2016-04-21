@@ -10,6 +10,7 @@ var userSchema = mongoose.Schema({
         role         : String,
         loggedIn     : Boolean,
         image        : String,
+        completed    : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Fail'}],
         category     : { type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
     }
 });

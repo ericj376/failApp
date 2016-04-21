@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Fail = require('../models/fail');
 var Comment = require('../models/comments');
+var User = require('../models/user');
 
 /*    Fail.find({ category: req.params.cat_id })
     .populate('category')
@@ -21,8 +22,8 @@ router.route('/categories/:cat_id')
              function (err, result) {
                res.json(result)
            });
-       });
-     });
+    });
+});
 
 router.route('/')
 	.post(function(req,res) {
@@ -200,6 +201,44 @@ router.route('/:fail_id/comment/:comments_id')
       })
   });
 
+router.route('/user/completed/:fail_id')
+  .post(function(req, res) {
+
+    var u = req.user ? req.user._id : "570feef11b7140423ccbddcd";
+
+    Fail.findById(req.params.fail_id, function( err, fail ) {
+      if(err) {
+        res.status(500).send( err, "Something broke on posting completed fail");
+      } else {
+        User.findById( u, function(err, user) {
+         if(err) {
+        res.status(500).send( err, "Something broke on posting the user of the completed fail" );
+      } else {
+        user.local.completed.push( fail._id )
+        user.save()
+        res.json(user)
+      } 
+        })
+      }
+      }
+    )
+  })
+  .get(function(req, res){
+    
+    var u = req.user ? req.user._id : "570feef11b7140423ccbddcd";
+
+    User.findById( u, function( err, user ) {
+      .populate({ 'local.completed' })
+    }
+    .exec(function( err, user ){
+      if(err){
+        res.status(500).send( err, "Something broke on getting users completed challenges" );
+      } else {
+        res.json( user );
+      }
+    })
+    )
+  });
 
 
  module.exports = router;
