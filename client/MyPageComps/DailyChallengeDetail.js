@@ -22,10 +22,13 @@ var DailyChallengeDetail = React.createClass({
     return(
       <div>
         <div>
-          <p>{this.props.oneFail.title}</p>
-          <img src={this.props.oneFail.img}/>
-          <p>Challenge: {this.props.oneFail.challenge}</p>
-          <p>Category: {categoryName}</p>
+          <div>
+            <button onClick={this.props.getId.bind(null, 'goBack', this.props.id)} className="btnSpace btn btn-primary"> Go Back </button>
+          </div>
+            <p>{this.props.oneFail.title}</p>
+            <img src={this.props.oneFail.img}/>
+            <p>Challenge: {this.props.oneFail.challenge}</p>
+            <p>Category: {categoryName}</p>
         </div>
       </div>
     )

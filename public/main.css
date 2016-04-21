@@ -1,3 +1,19 @@
+.research {
+  border: 2px black;
+  border-radius: 15px;
+}
+.textContainer {
+  border: 2px black;
+  border-radius: 15px;
+  height: 200px;
+  width: 500px;
+
+}
+.bigPic {
+  height: 50%;
+  width: 50%;
+  padding-top: 30px;
+}
 
 body {
   background-color: grey;

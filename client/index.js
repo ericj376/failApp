@@ -10,8 +10,6 @@ var WhyFail = require('./whyFail');
 var MyPage = require('./myPage');
 
 
-
-
 var App = React.createClass({
   getInitialState: function() {
     return {
@@ -23,11 +21,9 @@ var App = React.createClass({
       activeComponent: componentName
     })
   },
-
   getActiveComponent: function() {
     return this.state.activeComponent;
   },
-
   showWhichComponent: function() {
    switch(this.state.activeComponent) {
     case 'home':
