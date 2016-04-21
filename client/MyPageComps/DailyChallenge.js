@@ -22,8 +22,8 @@ var DailyChallenge = React.createClass ({
         <div className="card-body"><img className="fail-img" src={this.props.oneFail.img}/>
           <div className="card-body card-flex">
             <div className="buttonPosition">  
-              <div
-                button onClick={this.props.getId.bind(null, 'showOne', this.props.id)} className="btnSpace btn btn-primary"> View More </button>
+              <div>
+                <button onClick={this.props.getId.bind(null, 'showOne', this.props.id)} className="btnSpace btn btn-primary"> View More </button>
               </div>
               <div className="titlePosition1">
                 <p>{this.props.oneFail.title}</p>

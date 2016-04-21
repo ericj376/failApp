@@ -204,7 +204,7 @@ router.route('/:fail_id/comment/:comments_id')
 router.route('/user/completed/:fail_id')
   .post(function(req, res) {
 
-    var u = req.user ? req.user._id : "570feef11b7140423ccbddcd";
+    var u = req.user ? req.user._id : "5716946021d6892c05fca587";
 
     Fail.findById(req.params.fail_id, function( err, fail ) {
       if(err) {
@@ -225,11 +225,11 @@ router.route('/user/completed/:fail_id')
   })
   .get(function(req, res){
     
-    var u = req.user ? req.user._id : "570feef11b7140423ccbddcd";
+    var u = req.user ? req.user._id : "5716946021d6892c05fca587";
 
-    User.findById( u, function( err, user ) {
-      .populate({ 'local.completed' })
-    }
+    User.findById(u) 
+      .populate( 'local.completed' )
+    
     .exec(function( err, user ){
       if(err){
         res.status(500).send( err, "Something broke on getting users completed challenges" );
@@ -237,7 +237,7 @@ router.route('/user/completed/:fail_id')
         res.json( user );
       }
     })
-    )
+    
   });
 
 
