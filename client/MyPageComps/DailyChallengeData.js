@@ -25,6 +25,7 @@ var DailyChallengeData = React.createClass({
       activeComponent: null,
       completedFails: null,
       dailyChallenge: null,
+      ratingScale: null,
     }
   },
   getId: function(type, id){
@@ -76,6 +77,17 @@ var DailyChallengeData = React.createClass({
       });
     })
   },
+  submitRatingToServer: function(){
+    var self = this;
+    var data = {ratingScale: this.state.ratingScale};
+    $.ajax({
+      url: '/api/ratings/' + this.state.oneFailId,
+      method: 'POST',
+      data: data
+    }).done(function(data){
+      console.log(data);
+    })
+  },
   submitCompletedDailyChallenge: function(id){
     var self = this;
     console.log("this is submit Completed Challenge")
@@ -88,6 +100,11 @@ var DailyChallengeData = React.createClass({
       self.loadOneFailByCategoryFromServer();
       self.loadCompletedChallengesFromServer();
     })
+  },
+  updateRate: function(rate){
+    console.log("found rate", rate);
+    this.setState({ ratingScale: rate })
+    this.submitRatingToServer();
   },
   componentDidMount: function() {
     this.loadOneFailByCategoryFromServer();
@@ -107,7 +124,7 @@ var DailyChallengeData = React.createClass({
     } else if (this.state.activeComponent === 'failCard') {
       return (
         <div>
-          <DailyChallenge id={oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={oneFail} getId={ this.getId } submitCompletedDailyChallenge={this.submitCompletedDailyChallenge} />
+          <DailyChallenge updateRate={this.updateRate} id={oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={oneFail} getId={ this.getId } submitCompletedDailyChallenge={this.submitCompletedDailyChallenge} />
           <CompletedChallengesList id={oneFailId} getId={this.getId} completedFails={completedFails} />
         </div>
       )
