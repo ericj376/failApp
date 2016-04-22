@@ -17,7 +17,7 @@ var React = require('react');
 var DailyChallenge = React.createClass ({
   render: function() {
     return (
-      <div className="card card-size">
+      <div className="card card-size2">
         <div className="card-body"><img className="fail-img" src={this.props.oneFail.img}/>
           <div className="card-body card-flex">
             <div className="buttonPosition">  
@@ -35,7 +35,7 @@ var DailyChallenge = React.createClass ({
               <p>{this.props.oneFail.challenge}</p>
             </div>
             <div>
-              <button onClick={this.props.getId.bind(null, 'challengeCompleted', this.props.id)} className="btnSpace1 btn btn-primary"> Challenge Completed! </button>
+              <button onClick={this.props.submitCompletedDailyChallenge.bind(null, this.props.id)} className="btnSpace1 btn btn-primary"> Challenge Completed! </button>
             </div>
           </div>
         </div>

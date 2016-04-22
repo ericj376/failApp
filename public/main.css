@@ -82,6 +82,12 @@ body {
   height: 400px;
   position: relative;
 }
+.card-size2 {
+  width: 500px;
+  height: 400px;
+  position: relative;
+  background-color: #1abc9c;
+}
 .buttonPosition {
   position: absolute;
   right: 5px;
