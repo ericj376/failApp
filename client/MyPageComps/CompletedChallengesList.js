@@ -7,21 +7,30 @@
         DailyChallengeData
           DailyChallenge
           DailyChallengeDetail
-            CompletedChallengesList
-              CompletedChallengesCard
+          CompletedChallengesList
+            CompletedChallengesCard
 */
 
 var React = require('react');
+var CompletedChallengesCard = require('./CompletedChallengesCard');
 
 var CompletedChallengesList = React.createClass({
+  
   render: function(){
+    
+      var completedFailsArray = this.props.completedFails.map(item => {
+        return( 
+          <CompletedChallengesCard title={item.title} />
+        )
+      })
 
-    return(
+    return (
       <div>
-        <h1> hello from CompletedChallengesList</h1>
+        { completedFailsArray }
       </div>
     )
   }
 });
+
 
 module.exports = CompletedChallengesList;

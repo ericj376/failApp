@@ -23,6 +23,7 @@ var DailyChallengeData = React.createClass({
       user: null,
       oneFailId: null,
       activeComponent: null,
+      completedFails: null,
     }
   },
   getId: function(type, id){
@@ -37,7 +38,6 @@ var DailyChallengeData = React.createClass({
       return null
     }
   },
-
   loadOneFailByCategoryFromServer: function(){
     var self = this;
 
@@ -59,22 +59,43 @@ var DailyChallengeData = React.createClass({
       })
     }) 
   },
+  loadCompletedChallengesFromServer: function(){
+    var self = this;
+
+    $.ajax({
+      url: '/api/fail/user/completed/' + this.state.oneFailId,
+      method: 'GET'
+    }).done(function(data){
+      console.log("horray loadCompletedChallengesFromServer", data);
+      self.setState({
+        completedFails: data.local.completed,
+        activeComponent: "failCompleted"
+      });
+      console.log(this.state);
+    })
+  },
   componentDidMount: function() {
     this.loadOneFailByCategoryFromServer();
+    this.loadCompletedChallengesFromServer();
   },
   render: function() {
+    console.log(this.state);
+    var {oneFail, oneFailId, completedFails} = this.state;
+
+    console.log("hello Jay Dawg");
+
+    console.log("completedFails", completedFails);
+
     if(this.state.activeComponent === 'oneFail'){
-      return <DailyChallengeDetail oneFail={this.state.oneFail} id={this.state.oneFailId} getId={ this.getId } />
+      return <DailyChallengeDetail oneFail={oneFail} id={oneFailId} getId={ this.getId } />;
     } else if (this.state.activeComponent === 'failCard') {
-      return <DailyChallenge id={this.state.oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={this.state.oneFail} getId={ this.getId } />;
+      return <DailyChallenge id={oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={oneFail} getId={ this.getId } />;
     } else if (this.state.activeComponent === 'failCompleted') {
-      return <CompletedChallengesList id={this.state.oneFailId} getId={this.getId} oneFail={this.state.oneFail} />
+      return <CompletedChallengesList id={oneFailId} getId={this.getId} completedFails={completedFails} />;
     } else {
       return null;
     }
   }
-
-
 });
 
 module.exports = DailyChallengeData;

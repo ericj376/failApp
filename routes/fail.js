@@ -204,7 +204,7 @@ router.route('/:fail_id/comment/:comments_id')
 router.route('/user/completed/:fail_id')
   .post(function(req, res) {
 
-    var u = req.user ? req.user._id : "5716946021d6892c05fca587";
+    var u = req.user ? req.user._id : "5716966121d6892c05fca588";
 
     Fail.findById(req.params.fail_id, function( err, fail ) {
       if(err) {
@@ -225,7 +225,7 @@ router.route('/user/completed/:fail_id')
   })
   .get(function(req, res){
     
-    var u = req.user ? req.user._id : "5716946021d6892c05fca587";
+    var u = req.user ? req.user._id : "5716966121d6892c05fca588";
 
     User.findById(u) 
       .populate( 'local.completed' )
