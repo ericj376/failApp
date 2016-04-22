@@ -6,9 +6,9 @@
           UserInfo
         DailyChallengeData
           DailyChallenge
-        CompletedChallengesData
-          CompletedChallengesList
-            CompletedChallengesCard
+          CompletedChallengesData
+            CompletedChallengesList
+              CompletedChallengesCard
 */
 
 var React = require('react');

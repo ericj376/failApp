@@ -7,9 +7,8 @@
         DailyChallengeData
           DailyChallenge
           DailyChallengeDetail
-        CompletedChallengesData
-          CompletedChallengesList
-            CompletedChallengesCard
+            CompletedChallengesList
+              CompletedChallengesCard
 */
 
 var React = require('react');
@@ -36,7 +35,7 @@ var DailyChallenge = React.createClass ({
               <p>{this.props.oneFail.challenge}</p>
             </div>
             <div>
-              <button className="btnSpace1 btn btn-primary"> Challenge Completed! </button>
+              <button onClick={this.props.getId.bind(null, 'challengeCompleted', this.props.id)} className="btnSpace1 btn btn-primary"> Challenge Completed! </button>
             </div>
           </div>
         </div>

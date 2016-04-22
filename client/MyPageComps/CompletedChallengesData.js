@@ -7,7 +7,6 @@
         DailyChallengeData
           DailyChallenge
           DailyChallengeDetail
-        CompletedChallengesData
-          CompletedChallengesList
-            CompletedChallengesCard
+            CompletedChallengesList
+              CompletedChallengesCard
 */

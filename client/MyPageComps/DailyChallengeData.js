@@ -7,8 +7,6 @@
         DailyChallengeData
           DailyChallenge
           DailyChallengeDetail
-          
-          CompletedChallengesData
             CompletedChallengesList
               CompletedChallengesCard
 */
@@ -16,6 +14,7 @@
 var React = require('react');
 var DailyChallenge = require('./DailyChallenge');
 var DailyChallengeDetail = require('./DailyChallengeDetail');
+var CompletedChallengesList = require('./CompletedChallengesList');
 
 var DailyChallengeData = React.createClass({
   getInitialState: function(){
@@ -31,10 +30,14 @@ var DailyChallengeData = React.createClass({
       return this.setState({ oneFailId: id, activeComponent: 'oneFail' })
     } else if ( type === 'goBack') {
       return this.setState({ oneFailId: id, activeComponent: 'failCard' })
+    } else if (type === 'challengeCompleted') { 
+      return this.setState({ oneFailId: id, activeComponent: 'failCompleted'})
+      console.log("this is get id", oneFailId);
     } else {
       return null
     }
   },
+
   loadOneFailByCategoryFromServer: function(){
     var self = this;
 
@@ -64,6 +67,8 @@ var DailyChallengeData = React.createClass({
       return <DailyChallengeDetail oneFail={this.state.oneFail} id={this.state.oneFailId} getId={ this.getId } />
     } else if (this.state.activeComponent === 'failCard') {
       return <DailyChallenge id={this.state.oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={this.state.oneFail} getId={ this.getId } />;
+    } else if (this.state.activeComponent === 'failCompleted') {
+      return <CompletedChallengesList id={this.state.oneFailId} getId={this.getId} oneFail={this.state.oneFail} />
     } else {
       return null;
     }
