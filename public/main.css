@@ -1,3 +1,20 @@
+.Card {
+  position: relative;
+}
+.cardBody {
+}
+.btnSpace1 {
+  position: absolute;
+  right: 5px;
+  bottom: 80px;
+}
+.positioning {
+}
+.titlePosition1 {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
 .research {
   border: 2px black;
   border-radius: 15px;

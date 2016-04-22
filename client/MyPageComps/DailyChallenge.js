@@ -25,18 +25,18 @@ var DailyChallenge = React.createClass ({
               <div>
                 <button onClick={this.props.getId.bind(null, 'showOne', this.props.id)} className="btnSpace btn btn-primary"> View More </button>
               </div>
-              <div className="titlePosition1">
-                <p>{this.props.oneFail.title}</p>
-              </div>
-              <div className="categoryPosition">
-                <p>Category: {this.props.oneFail.category.name}</p>
-              </div>
-              <div className="textPosition">
-                <p>{this.props.oneFail.challenge}</p>
-              </div>
-              <div>
-                <button className="btnSpace btn btn-primary"> Challenge Completed! </button>
-              </div>
+            </div>
+            <div className="titlePosition1">
+              <p>{this.props.oneFail.title}</p>
+            </div>
+            <div className="categoryPosition">
+              <p>Category: {this.props.oneFail.category.name}</p>
+            </div>
+            <div className="textPosition">
+              <p>{this.props.oneFail.challenge}</p>
+            </div>
+            <div>
+              <button className="btnSpace1 btn btn-primary"> Challenge Completed! </button>
             </div>
           </div>
         </div>
