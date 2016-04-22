@@ -20,7 +20,7 @@ var CompletedChallengesList = React.createClass({
     
       var completedFailsArray = this.props.completedFails.map(item => {
         return( 
-          <CompletedChallengesCard title={item.title} />
+          <CompletedChallengesCard img={item.img} challenge={item.challenge} title={item.title} />
         )
       })
 

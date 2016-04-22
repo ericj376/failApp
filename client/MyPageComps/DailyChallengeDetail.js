@@ -18,6 +18,7 @@ var DailyChallengeDetail = React.createClass({
     var user = this.props.user ? this.props.user.local.email : null;
     var categoryName = this.props.oneFail.category ? this.props.oneFail.category.name : "no category";
 
+    console.log(this.props);
     return(
       <div>
         <div>
