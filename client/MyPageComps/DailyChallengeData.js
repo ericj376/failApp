@@ -25,7 +25,7 @@ var DailyChallengeData = React.createClass({
       activeComponent: null,
       completedFails: null,
       dailyChallenge: null,
-      ratingScale: null,
+      ratingScale: 0,
     }
   },
   getId: function(type, id){
@@ -101,6 +101,7 @@ var DailyChallengeData = React.createClass({
       self.loadCompletedChallengesFromServer();
     })
   },
+
   updateRate: function(rate){
     console.log("found rate", rate);
     this.setState({ ratingScale: rate })
@@ -124,7 +125,7 @@ var DailyChallengeData = React.createClass({
     } else if (this.state.activeComponent === 'failCard') {
       return (
         <div>
-          <DailyChallenge updateRate={this.updateRate} id={oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={oneFail} getId={ this.getId } submitCompletedDailyChallenge={this.submitCompletedDailyChallenge} />
+          <DailyChallenge ratingScale={this.state.ratingScale} updateRate={this.updateRate} id={oneFailId} loadOneFailByCategoryFromServer={this.loadOneFailByCategoryFromServer} oneFail={oneFail} getId={ this.getId } submitCompletedDailyChallenge={this.submitCompletedDailyChallenge} />
           <CompletedChallengesList id={oneFailId} getId={this.getId} completedFails={completedFails} />
         </div>
       )

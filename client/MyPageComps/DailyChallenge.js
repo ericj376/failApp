@@ -39,7 +39,7 @@ var DailyChallenge = React.createClass ({
               <button onClick={this.props.submitCompletedDailyChallenge.bind(null, this.props.id)} className="btnSpace1 btn btn-primary"> Challenge Completed! </button>
             </div>
             <div>
-              <Rating onClick={this.props.updateRate} />
+              <Rating onClick={this.props.updateRate}  placeholderRate={this.props.ratingScale}/>
             </div>
           </div>
         </div>
