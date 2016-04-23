@@ -76,7 +76,7 @@ var FailBox = React.createClass ({
   },
   render: function() {
     return(
-      <div className="container">
+      <div className="container failBoxContainer">
         <Toggler toggleActiveComp={ this.toggleActiveComp }/>
         { this.showComp()}
       </div>

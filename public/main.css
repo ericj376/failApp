@@ -213,8 +213,28 @@ body {
   top: 10px;
   left: 20px;
 }
+.singleFailCard {
+  height: 500px;
+  width: 100%;
+}
 
-
+.fa-keyboard-o {
+  padding-left: 10px;
+}
+.toggleBox {
+  display: block;
+  height:30px;
+  width: 100px;
+  background-color: orange;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+.failBoxContainer {
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
 
 

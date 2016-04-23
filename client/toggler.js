@@ -3,10 +3,10 @@ var React = require('react');
 var Toggler = React.createClass({
   render: function(){
     return (
-      <div className="container">
+      <div className="container toggleBox">
         <div className="btn-group" data-toggle="buttons">
-          <button onClick={this.props.toggleActiveComp.bind(null, 'fail')} className="btn btn-info">Fail Display</button>
-          <button onClick={this.props.toggleActiveComp.bind(null, 'form')} className="btn btn-info">Create New Fail</button>
+          <i onClick={this.props.toggleActiveComp.bind(null, 'fail')} className="fa fa-lg fa-list-ol" aria-hidden="true"></i>
+          <i onClick={this.props.toggleActiveComp.bind(null, 'form')} className="fa fa-lg fa-keyboard-o"aria-hidden="true"></i>
         </div>
       </div>
     )
@@ -14,3 +14,5 @@ var Toggler = React.createClass({
 });
 
 module.exports = Toggler;
+
+     
