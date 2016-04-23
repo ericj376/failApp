@@ -7,8 +7,8 @@
         DailyChallengeData
           DailyChallenge
           DailyChallengeDetail
-            CompletedChallengesList
-              CompletedChallengesCard
+          CompletedChallengesList
+            CompletedChallengesCard
 */
 var React = require('react');
 var UserInfoData = require('./UserInfoData');

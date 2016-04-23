@@ -7,11 +7,12 @@
         DailyChallengeData
           DailyChallenge
           DailyChallengeDetail
-            CompletedChallengesList
-              CompletedChallengesCard
+          CompletedChallengesList
+            CompletedChallengesCard
 */
 
 var React = require('react');
+var Rating = require('react-rating');
 
 function CompletedChallengesCard(props) {
   return(
@@ -27,6 +28,10 @@ function CompletedChallengesCard(props) {
             <p>{props.challenge}</p>
           </div>
  
+          <div>
+            <Rating placeholderRate={props.ratingScale}/>
+          </div>
+
         </div>
       </div>
     </div>

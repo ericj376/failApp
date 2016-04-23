@@ -1,19 +1,70 @@
+.card-body {
+  position: relative;
+}
+.categoryText {
+  position: absolute;
+  top: 5px;
+  left: 40%;
+  color: white !important;
+  text-align: right !important;
+}
+.categoryBox {
+  height: 35px;
+  background-color: red;
+  margin: 0 auto;
+  display: inline-block;
+  padding: 10px;
+  position: absolute;
+  left: 90px;
+  top: 0px;
+  width: 100px !important;
+  }
+.ratingBox-flex {
+  left: 20%;
+  position: absolute;
+  bottom: 0px;
+
+}
 .Card {
   position: relative;
 }
-.cardBody {
-}
-.btnSpace1 {
+#challengePosition {
+  font-family: 'Open Sans', Light 300, sans-serif;
+  font-weight: 900 !important;
+  font-size: 1rem;
   position: absolute;
-  right: 5px;
-  bottom: 80px;
+  bottom: 50px;
+  color: white !important;
+  width: 270px;
+  text-align: center;
 }
+#titlePosition {
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 100px;
+  color: white !important;
+  width: 270px;
+  text-align: center;
+  opacity: 1 !important;
+}
+.opacityBox {
+  display: block;
+  opacity: 0.5;
+  background-color: gray;
+  width: 270px;
+  height: 150px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+
 .positioning {
 }
-.titlePosition1 {
-  position: absolute;
-  top: 5px;
-  left: 10px;
+.textPosition {
+  position: relative;
 }
 .research {
   border: 2px black;
@@ -62,35 +113,31 @@ body {
 }
 
 .fail-img {
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  height: 500px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
-  top: 30px;
-  left: 10px;
+
 }
 
 .card-flex {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  position: relative;
+  height: 500px;
 }
 .card-size {
-  width: 500px;
-  height: 400px;
+  width: 270px;
+  height: 500px;
+  border: 0px;
   position: relative;
 }
 .card-size2 {
-  width: 500px;
-  height: 400px;
-  position: relative;
+  width: 270px;
+  height: 500px;
   background-color: #1abc9c;
-}
-.buttonPosition {
-  position: absolute;
-  right: 5px;
 }
 .textPosition {
   position: absolute;
@@ -103,15 +150,25 @@ body {
   top: 5px;
   left: 5px;
 }
-.titlePosition1 {
-  
-}
 .btnSpace {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.categoryPosition {
   position: absolute;
-  top: 150px;
+  bottom: 100px;
+}
+.viewSpace {
+  color: white;
+  position: absolute;
+  top: 5px;
   right: 10px;
+}
+.editSpace {
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.deleteSpace {
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 30px;
 }

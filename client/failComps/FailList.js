@@ -40,7 +40,7 @@ function FailList(props) {
 		);
 	})
 	return (
-		<div className="fail-flex">
+		<div className="">
 			{ allFails }
 		</div>	
 		)

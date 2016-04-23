@@ -26,31 +26,21 @@ function FailCard(props) {
   var ratingsFail = props.ratings ? props.ratings.ratingScale : "no rating";
 	return(
 		<div className="card card-size">
-			<div className="card-body"><img className="fail-img" src={props.img}/>
-				<div className="card-body card-flex">
-  				<div className="buttonPosition">	
-            <div>
-              <button onClick={props.getId.bind(null, 'showOne', props.id)} className="btnSpace btn btn-primary"> View More </button>
-  					</div>
-            <div>
-              <button onClick={props.getId.bind(null, 'editOne', props.id)} className="btnSpace btn btn-primary"> Edit </button>
-            </div>
-            <div> 
-              <button onClick={props.deleteSingleFail.bind(null, props.id)} className="btnSpace btn btn-primary"> Delete </button>
-            </div>
+      <div className="card-flex">
+        <div className="card-body"><img className="fail-img" src={props.img}/>
+          <div className="categoryBox">
+            <p className="categoryText">{categoryName}</p>
           </div>
-          <div className="titlePosition">
-            <p>{props.title}</p>
+          <i onClick={props.getId.bind(null, 'showOne', props.id)} className="fa fa-lg fa-binoculars viewSpace" aria-hidden="true"></i>
+          <i onClick={props.getId.bind(null, 'editOne', props.id)} className="fa fa-lg fa-pencil editSpace" aria-hidden="true"></i>
+          <i onClick={props.deleteSingleFail.bind(null, props.id)} className="fa fa-lg fa-trash deleteSpace" aria-hidden="true"></i>
+          <div className="container opacityBox">
           </div>
-          <div className="categoryPosition">
-            <p>Category: {categoryName}</p>
-          </div>
-          <div className="textPosition">
-            <p>{props.challenge}</p>
-          </div>
-          <div className="rating-position"> 
+          <div className="ratingBox-flex">
             <Rating readonly={true} initialRate={props.average}/>
-				  </div>
+          </div>
+          <p id="titlePosition">{props.title}</p>          
+          <p id="challengePosition">{props.challenge}</p>        
         </div>
 			</div>
 		</div>
