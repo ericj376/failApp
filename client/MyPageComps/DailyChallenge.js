@@ -17,33 +17,32 @@ var Rating = require('react-rating');
 
 var DailyChallenge = React.createClass ({
   render: function() {
+    var categoryName = this.props.oneFail.category ? this.props.oneFail.category.name : "no category";
     return (
-      <div className="card card-size2">
-        <div className="card-body"><img className="fail-img" src={this.props.oneFail.img}/>
-          <div className="card-body card-flex">
-            <div className="buttonPosition">  
-              <div>
-                <button onClick={this.props.getId.bind(null, 'showOne', this.props.id)} className="btnSpace btn btn-primary"> View More </button>
-              </div>
+      <div className="card card-size">
+        <div className="card-flex">
+          <div className="card-body"><img className="fail-img" src={this.props.oneFail.img}/>
+            <div className="categoryBox">
+              <p className="categoryText">{categoryName}</p>
             </div>
-            <div className="titlePosition1">
-              <p>{this.props.oneFail.title}</p>
+            <i onClick={this.props.getId.bind(null, 'showOne', this.props.id)} className="fa fa-lg fa-binoculars viewSpace" aria-hidden="true"></i>
+            <div className="container opacityBox">
             </div>
-            <div className="categoryPosition">
-              <p>Category: {this.props.oneFail.category.name}</p>
+            <div className="ratingBox-flex">
+              <Rating onClick={this.props.updateRate} initialRate='null' placeholderRate={this.props.ratingScale} />
             </div>
-            <div className="textPosition">
-              <p>{this.props.oneFail.challenge}</p>
-            </div>
+            <p id="titlePosition">{this.props.oneFail.title}</p>          
+            <p id="challengePosition">{this.props.oneFail.challenge}</p> 
             <div>
-              <button onClick={this.props.submitCompletedDailyChallenge.bind(null, this.props.id)} className="btnSpace1 btn btn-primary"> Challenge Completed! </button>
-            </div>
-            <div>
-              <Rating onClick={this.props.updateRate} initialRate='null' placeholderRate={this.props.ratingScale}/>
-            </div>
+              <button onClick={this.props.submitCompletedDailyChallenge.bind(null, this.props.id)} className="btnSpace1 btn btn-primary"> Challenge Complete! </button>
+            </div>  
           </div>
         </div>
-      </div>
+      </div>    
+
+
+           
+         
     )        
    }
  });
