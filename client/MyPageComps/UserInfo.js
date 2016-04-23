@@ -18,13 +18,14 @@ var UserInfo = React.createClass({
     var image = this.props.user ? this.props.user.local.image : "";
     var username = this.props.user ? this.props.user.local.username : "";
     return(
-      <div>
-        <div className="panel-body"><img src={image}/>
-        <div>{username}</div>
-       </div>
+      <div className="jumbotron userContainer">
+        <div className="userNameText">Welcome to Your Personal Page {username}!</div>
+        <div><img className="userImage" src={image}/>
+        </div>
       </div>
       )
   }
 });
 
 module.exports = UserInfo; 
+

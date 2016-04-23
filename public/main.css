@@ -1,3 +1,7 @@
+body {
+    font-family: 'Open Sans', Light 300, sans-serif !important;
+}
+
 .card-body {
   position: relative;
 }
@@ -151,8 +155,26 @@ body {
   left: 5px;
 }
 .btnSpace {
+  top: 100px;
+  display: block;
+  opacity: 1;
+  background: transparent;
+  width: 270px;
+  height: 50px;
   position: absolute;
-  bottom: 100px;
+  font-family: 'Open Sans', Light 300, sans-serif;
+  color: white;
+  border: 0;
+}
+
+.opacityButton {
+  top: 100px;
+  display: block;
+  opacity: 0.5;
+  background-color: blue;
+  width: 270px;
+  height: 50px;
+  position: absolute;
 }
 .viewSpace {
   color: white;
@@ -172,3 +194,34 @@ body {
   top: 5px;
   left: 30px;
 }
+.userImage {
+  max-height: 150px;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+}
+.userContainer {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 250px;
+}
+.userNameText {
+  position: absolute;
+  font-family: "Open Sans", Light 300, sans-serif !important;
+  font-size: 30px !important;
+  top: 10px;
+  left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

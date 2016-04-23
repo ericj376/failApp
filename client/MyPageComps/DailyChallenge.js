@@ -33,8 +33,10 @@ var DailyChallenge = React.createClass ({
             </div>
             <p id="titlePosition">{this.props.oneFail.title}</p>          
             <p id="challengePosition">{this.props.oneFail.challenge}</p> 
+            <div className="container opacityButton">
+            </div>
             <div>
-              <button onClick={this.props.submitCompletedDailyChallenge.bind(null, this.props.id)} className="btnSpace1 btn btn-primary"> Challenge Complete! </button>
+              <button onClick={this.props.submitCompletedDailyChallenge.bind(null, this.props.id)} className="btnSpace"> Fail Challenge Done? Click Here! </button>
             </div>  
           </div>
         </div>
