@@ -9,10 +9,10 @@ var LogIn = React.createClass({
       return (
         <div>
           <li className="nav-item pull-xs-right">
-            <button onClick= { self.props.setActiveComponent.bind(null,'signUp' )} className="nav-link btn btn-success-outline" type="submit">Sign Up</button>
+            <button onClick= { self.props.setActiveComponent.bind(null,'signUp' )} className="btn signUpStyle" type="submit">sign up</button>
           </li>
           <li className="nav-item pull-xs-right">
-            <button onClick= { self.props.setActiveComponent.bind(null,'login' )} className="nav-link btn btn-success-outline" type="submit">Login</button>
+            <button onClick= { self.props.setActiveComponent.bind(null,'login' )} className="btn signUpStyle" type="submit">login</button>
           </li>
         </div>
       )
@@ -77,7 +77,7 @@ var NavBar = React.createClass({
           }
         });
       return (
-       <nav className="navbar navbar-dark bg-inverse">
+       <nav className="navbar navbarStyle">
         <a className="navbar-brand" href=""></a>
         <ul className="nav navbar-nav">
           

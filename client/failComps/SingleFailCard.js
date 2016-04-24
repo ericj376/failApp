@@ -33,12 +33,19 @@ var SingleFailCard = React.createClass({
     return(
       <div>
         <div className="container singleFailCard">
-          <p>{this.props.oneFail.title}</p>
-          <img src={this.props.oneFail.img}/>
-          <p>{this.props.oneFail.challenge}</p>
-          <Rating readonly={true} initialRate={this.props.average}/>
-          <p>{categoryName}</p>    
-          <CommentList loadOneFailFromServer={ this.props.loadOneFailFromServer } failId={ this.props.oneFail._id } commentsArray={this.props.oneFail.comments} deleteComment={ this.props.deleteComment } getId={this.props.getId}/>
+          <p className="SFCtitlePosition">{this.props.oneFail.title}</p>
+          <img className="SFCimgPosition" src={this.props.oneFail.img}/>
+          <div className="container SFCchallengeContainer">
+            <p className="SFCchallengePosition">{this.props.oneFail.challenge}</p>
+          </div>
+          <div className="SFCrating">
+            <Rating readonly={true} initialRate={this.props.average}/>
+          </div>
+
+          <p className="SFCcategory">{categoryName}</p>    
+          <div className="SFCcomments">
+            <CommentList loadOneFailFromServer={ this.props.loadOneFailFromServer } failId={ this.props.oneFail._id } commentsArray={this.props.oneFail.comments} deleteComment={ this.props.deleteComment } getId={this.props.getId}/>
+          </div>
         </div>
       </div>
     )

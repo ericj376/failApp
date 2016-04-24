@@ -37,7 +37,7 @@ function FailForm(props){
       </fieldset>
       <fieldset className="form-group">
         <label>Challenge</label>
-        <input onChange={props.onChallengeChange} value={props.challenge} type="text" className="form-control"/>
+        <textarea onChange={props.onChallengeChange} value={props.challenge} rows="3" type="text" className="form-control" />
       </fieldset>       
       <fieldset className="form-group">
         <label htmlFor="exampleSelect1">Categories</label>
