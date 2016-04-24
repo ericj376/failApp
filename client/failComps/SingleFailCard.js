@@ -31,7 +31,7 @@ var SingleFailCard = React.createClass({
     var categoryName = this.props.oneFail.category ? this.props.oneFail.category.name : "no category";
      
     return(
-      <div>
+      <div className="jumbotron jumbotron-fluid SFCcontainer">
         <div className="container singleFailCard">
           <p className="SFCtitlePosition">{this.props.oneFail.title}</p>
           <img className="SFCimgPosition" src={this.props.oneFail.img}/>

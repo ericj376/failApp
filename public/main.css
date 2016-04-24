@@ -250,7 +250,6 @@ body {
   height: 500px;
   width: 100%;
   position: relative;
-
 }
 .SFCimgPosition {
   position: absolute;
@@ -259,7 +258,7 @@ body {
 }
 .SFCtitlePosition {
   position: absolute;
-  left: 44%;
+  left: 48%;
   font-family: "Open Sans", sans-serif !important;
   font-size: 30px;
 }
@@ -296,6 +295,7 @@ body {
 .navbarStyle {
   background-color: #F09508;
   height: 50px;
+  width: 100%;
 }
 .nav-link {
   color: white;
@@ -313,6 +313,7 @@ html {
 .footerColor {
   background-color: #4D4D4D;
   height: 50px;
+  width: 100%;
 }
 .footerText {
   position: relative;
@@ -344,7 +345,12 @@ html {
   left: 230px;
   top: 14px;
 }
-
-
+.jumbotronStyle {
+  background-color: #4D4D4D;
+}
+.SFCcontainer {
+  background-color: #F09508;
+  width: 100%;
+}
 
 

@@ -76,7 +76,7 @@ var FailBox = React.createClass ({
   },
   render: function() {
     return(
-      <div className="container failBoxContainer">
+      <div className="jumbotron failBoxContainer">
         <Toggler toggleActiveComp={ this.toggleActiveComp }/>
         { this.showComp()}
       </div>

@@ -6,7 +6,7 @@ var Home = React.createClass({
     return(
       <div className="failBoxColor">
         <div>
-          <div className="jumbotron">
+          <div className="jumbotron jumbotronStyle">
             <h1 className="jumboTitle"> Fail App </h1>
             <h3 className="jumboSubTitle">Fail now so you can succeed later!</h3>
           </div>
