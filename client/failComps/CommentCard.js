@@ -20,14 +20,28 @@ Index
 var React =require('react');
 
 var CommentCard = React.createClass({
+
   render: function(){
+    if(this.props.userLocal && this.props.userLocal._id === null){
+      var deleteComment = <button onClick={this.props.deleteComment.bind(null,  this.props.id)} type="button" className="btn btn-warning">Delete Comment</button>
+    } else {
+      var deleteComment = null;
+    };
+
+    if(this.props.userLocal && this.props.userLocal._id === null){
+      var editComment = <button onClick={this.props.getId.bind(null, 'editOneComment', this.props.id)} type="button" className="btn btn-warning">Edit Comment</button>
+    } else {
+      var editComment = null;
+    };
     return(
       <div>
         <p>{this.props.body}</p>
         <p>{this.props.date}</p>
         <p>{this.props.username}</p>
-        <button onClick={this.props.deleteComment.bind(null,  this.props.id)} type="button" className="btn btn-warning">Delete Comment</button>
-        <button onClick={this.props.getId.bind(null, 'editOneComment', this.props.id)} type="button" className="btn btn-warning">Edit Comment</button>
+        <div>
+          {deleteComment}
+          {editComment}
+        </div>
       </div>
     )
   }

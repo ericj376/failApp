@@ -28,8 +28,20 @@ var CommentList = React.createClass({
       return{
         activeComponent: "commentCard",
         activeCommentId: null,
+        userLocal: null,
       }
     },
+    loadUserFromServer: function(){
+    var self = this;
+    $.ajax({
+      url: '/getUser',
+      method: 'GET'
+    }).done(function(data){
+      console.log(data, "this is load user from server YO")
+      self.setState({ userLocal: data});
+      console.log(self.state);
+    })
+   },
     getId: function(type, id){
       if(type === 'showOneComment'){
         return this.setState({ activeCommentId: id, activeComponent: 'commentCard'})
@@ -51,6 +63,9 @@ var CommentList = React.createClass({
     toggleActiveComp: function(name){
       this.setState({activeComponent: name})
       },
+    componentDidMount: function(){
+      this.loadUserFromServer();
+    },
     showCommentCard: function(){
       var self = this;
 
@@ -60,7 +75,7 @@ var CommentList = React.createClass({
         var b = c.body ? c.body : null;
         return(
           <div>
-           <CommentCard body={b} date={c.date.substr(0,10)} username={user} id={c._id} deleteComment={ self.props.deleteComment } getId={self.getId} toggleActiveComp={self.toggleActiveComp}/> 
+           <CommentCard userLocal={self.state.userLocal} body={b} date={c.date.substr(0,10)} username={user} id={c._id} deleteComment={ self.props.deleteComment } getId={self.getId} toggleActiveComp={self.toggleActiveComp}/> 
           </div>
         )
       });
