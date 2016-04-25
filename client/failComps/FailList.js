@@ -28,6 +28,7 @@ function FailList(props) {
 	var allFails = props.failArray.map(item => {
 		return(
 		    <FailCard
+          user = {props.user}
 			    getId = { props.getId }
           deleteSingleFail={ props.deleteSingleFail }
 			    id = { item._id }

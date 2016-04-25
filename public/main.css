@@ -232,10 +232,8 @@ body {
   padding-left: 10px;
 }
 .toggleBox {
-  display: block;
   height:30px;
   width: 100px;
-  background-color: orange;
   position: absolute;
   top: 0px;
   right: 10px;

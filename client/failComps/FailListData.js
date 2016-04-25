@@ -27,12 +27,22 @@ var SingleFailCardData = require('./SingleFailCardData');
 var FailListData = React.createClass({
 	getInitialState: function() {
 		return {
-			allFails: null
+			allFails: null,
+      user: null,
 		}
 	},
   contextTypes: {
     sendNotification: React.PropTypes.func.isRequired
   },
+  loadUserFromServer: function(){
+    var self = this;
+    $.ajax({
+      url: '/getUser',
+      method: 'GET'
+    }).done(function(data){
+      self.setState({ user: data});
+    })
+   },
 	loadAllFailsFromServer: function() {  
 		var self = this;
 		$.ajax({
@@ -56,6 +66,7 @@ var FailListData = React.createClass({
   },
 	componentDidMount: function() {
 		this.loadAllFailsFromServer();
+    this.loadUserFromServer();
 	},
   getAverage: function(rate){
    
@@ -68,7 +79,7 @@ var FailListData = React.createClass({
     var renderingStuff = null; 
     if (this.state.allFails && !this.props.onlyOne) {
       renderingStuff = (
-          <FailList failArray={this.state.allFails} getId={ this.props.getId } deleteSingleFail={this.deleteSingleFail} getAverage={this.getAverage} />
+          <FailList user={this.state.user ? this.state.user : null} failArray={this.state.allFails} getId={ this.props.getId } deleteSingleFail={this.deleteSingleFail} getAverage={this.getAverage} />
       )
     } else if ( this.props.onlyOne ) {
       renderingStuff = (

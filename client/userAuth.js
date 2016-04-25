@@ -90,6 +90,7 @@ var UserAuth = React.createClass({
       }).done( function() {
         self.setState({user: null});
         self.context.sendNotification('you logged out');
+        window.location = '/';
       }).fail(function() {
         self.context.sendNotification('logged out failed');
       });
