@@ -49,7 +49,7 @@ var CommentFormData = React.createClass({
   },
   render: function(){
     return(
-      <CommentForm handleSubmit={ this.handleSubmit } onBodyChange={ this.onBodyChange } body={this.state.body}/>
+      <CommentForm userLocal={this.props.userLocal} handleSubmit={ this.handleSubmit } onBodyChange={ this.onBodyChange } body={this.state.body}/>
     )
   }
 });

@@ -19,19 +19,29 @@ Index
 */
 var React = require('react');
 
-function CommentForm(props){
-  return(
-    <div className="container">
-      <div className="row col-lg-8 col-lg-offset-4">
-        <form onSubmit={ props.handleSubmit } role='form' >
-          <textarea className="form" rows="6" columns="3" value={ props.body } onChange={ props.onBodyChange }
-            placeholder='Add comments here!' id="comment"></textarea><br/>
-          <button type='submit' className="legend button-color">Submit Comment</button>
-        </form>
+var CommentForm = React.createClass({
+  render: function(){
+    window.u = this.props.userLocal;
+    if(this.props.userLocal.user !== "no user"){
+      var formComment = 
+        <div className="container">
+          <div className="row col-lg-8 col-lg-offset-4">
+            <form onSubmit={ this.props.handleSubmit } role='form' >
+              <textarea className="form" rows="6" columns="3" value={ this.props.body } onChange={ this.props.onBodyChange }
+                placeholder='Add comments here!' id="comment"></textarea><br/>
+              <button type='submit' className="legend button-color">Submit Comment</button>
+            </form>
+          </div>
+        </div>
+    } else {
+      var formComment = null;
+    };
+    return(
+      <div>
+       {formComment}
       </div>
-    </div>
-      )
-
-};
+    )
+  }
+});
 
 module.exports = CommentForm;

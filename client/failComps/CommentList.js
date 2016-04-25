@@ -70,19 +70,21 @@ var CommentList = React.createClass({
       var self = this;
 
       var comments = this.props.commentsArray.map(function(c){
-        var user = c.user && c.user.local ? c.user.local.username : "no user";
+        var userName = c.user && c.user.local ? c.user.local.username : "no user";
+        var userId = c.user ? c.user._id : "no user";
+
 
         var b = c.body ? c.body : null;
         return(
           <div>
-           <CommentCard userLocal={self.state.userLocal} body={b} date={c.date.substr(0,10)} username={user} id={c._id} deleteComment={ self.props.deleteComment } getId={self.getId} toggleActiveComp={self.toggleActiveComp}/> 
+           <CommentCard userId={userId} userLocal={self.state.userLocal} body={b} date={c.date.substr(0,10)} username={userName} id={c._id} deleteComment={ self.props.deleteComment } getId={self.getId} toggleActiveComp={self.toggleActiveComp}/> 
           </div>
         )
       });
       return(
         <div>
           { comments }
-          <CommentFormData loadOneFailFromServer={ this.props.loadOneFailFromServer } failId={this.props.failId} />
+          <CommentFormData userLocal={this.state.userLocal} loadOneFailFromServer={ this.props.loadOneFailFromServer } failId={this.props.failId} />
         </div>
       )
     },
