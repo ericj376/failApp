@@ -25,11 +25,11 @@ var CommentForm = React.createClass({
     if(this.props.userLocal.user !== "no user"){
       var formComment = 
         <div className="container">
-          <div className="row col-lg-8 col-lg-offset-4">
+          <div className="row col-lg-12">
             <form onSubmit={ this.props.handleSubmit } role='form' >
-              <textarea className="form" rows="6" columns="3" value={ this.props.body } onChange={ this.props.onBodyChange }
+              <textarea className="form" rows="2" columns="12" value={ this.props.body } onChange={ this.props.onBodyChange }
                 placeholder='Add comments here!' id="comment"></textarea><br/>
-              <button type='submit' className="legend button-color">Submit Comment</button>
+              <button type='submit' className="btn btn-warning">Submit Comment</button>
             </form>
           </div>
         </div>

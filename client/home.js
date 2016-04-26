@@ -7,8 +7,10 @@ var Home = React.createClass({
       <div className="failBoxColor">
         <div>
           <div className="jumbotron jumbotronStyle">
-            <h1 className="jumboTitle"> Fail App </h1>
-            <h3 className="jumboSubTitle">Fail now so you can succeed later!</h3>
+            <div>
+              <iframe className="embed-responsive-item home-video" src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed.mp4" ></iframe>
+            </div>
+            
           </div>
         </div>
         <div>

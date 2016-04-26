@@ -248,43 +248,65 @@ body {
   height: 500px;
   width: 100%;
   position: relative;
+  margin: 0px;
 }
 .SFCimgPosition {
+  padding-top: 100px;
   position: absolute;
-  left: 40%;
-  padding-top: 50px;
+  left: 0;
+  margin: 0px;
+  height: 500px;
+  width: 270px
 }
 .SFCtitlePosition {
+  padding-top: 50px !important;
   position: absolute;
-  left: 48%;
+  left: 5px;
   font-family: "Open Sans", sans-serif !important;
   font-size: 30px;
+  color: white;
+  font-family: "Open Sans", sans-serif !important;
 }
 .SFCchallengePosition {
   position: absolute;
-  left: 40%;
+  left: 0;
+  color: white;
   font-family: "Open Sans", sans-serif !important;
   font-size: 20px;
-  top: 270px;
+  top: 570px;
+  width: 300px;
+  height: 170px;
 }
 .SFCchallengeContainer {
   position: relative;
   width: 300px;
+  margin-left: 0px;
 }
 .SFCrating {
   position: absolute;
-  left: 40%;
-  top: 230px;
+  left: 0px;
+  top: 500px;
+  padding-top: 20px;
 }
 .SFCcategory {
   position: absolute;
-  left: 58%;
-  top: 230px;
+  left: 0px;
+  top: 0px;
+  height: 35px;
+  background-color: red;
+  margin: 0 auto;
+  display: inline-block;
+  padding: 10px;
+  padding-left: 30px;
+  top: 0px;
+  width: 100px !important;
+  color: white;
+  font-family: "Open Sans", sans-serif !important;
 }
 .SFCcomments {
   position: absolute;
-  left: 40%;
-  top: 470px;
+  left: 0;
+  top: 700px;
   padding-bottom: 70px;
 }
 .failBoxColor {
@@ -345,10 +367,20 @@ html {
 }
 .jumbotronStyle {
   background-color: #4D4D4D;
+  height: 550px;
+  width: 100%;
+}
+.home-video {
+  width: 100%;
+  height: 600px;
 }
 .SFCcontainer {
   background-color: #F09508;
   width: 100%;
+  height: 1500px;
+  padding-top: 0px;
 }
-
+.commentBody {
+  border: 2px solid black;
+}
 

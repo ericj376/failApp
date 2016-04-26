@@ -41,10 +41,9 @@ var CommentCard = React.createClass({
       var editComment = null;
     };
     return(
-      <div>
-        <p>{this.props.body}</p>
-        <p>{this.props.date}</p>
-        <p>{this.props.username}</p>
+      <div className="commentBody">
+        <p>&emsp;  @ {this.props.username} | {this.props.date}</p>
+        <p>&emsp; {this.props.body}</p>
         <div>
           {deleteComment}
           {editComment}
