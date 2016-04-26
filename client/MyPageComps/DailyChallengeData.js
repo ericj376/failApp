@@ -54,14 +54,14 @@ var DailyChallengeData = React.createClass({
          console.log(data, "trying to find the categoryyyyyyyyyyyy");
         self.setState({
           oneFail: data,
-          oneFailId: data ? data._id : null 
+          oneFailId: data ? data._id : null
         });
         $.ajax({
           url: '/api/fail/user/completed',
           method: 'GET'
         }).done(function(data){
-          console.log(data, "trying to find the category");
           self.setState({
+            user: data,
             completedFails: data.local.completed,
             activeComponent: "failCard"
           });
