@@ -22,7 +22,6 @@ Index
 var React = require('react');
 var FailCard = require('./FailCard');
 
-
 function FailList(props) {
 		//map through data and pass it to Fail card; 
 	var allFails = props.failArray.map(item => {
@@ -40,10 +39,10 @@ function FailList(props) {
 		);
 	})
 	return (
-		<div className="">
-			{ allFails }
-		</div>	
-		)
+		<div>
+			{allFails}
+		</div>
+	)
 };
 
 FailList.propTypes = {

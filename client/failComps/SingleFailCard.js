@@ -35,9 +35,7 @@ var SingleFailCard = React.createClass({
         <div className="container singleFailCard">
           <p className="SFCtitlePosition">{this.props.oneFail.title}</p>
           <img className="SFCimgPosition" src={this.props.oneFail.img}/>
-          <div className="container SFCchallengeContainer">
-            <p className="SFCchallengePosition">{this.props.oneFail.challenge}</p>
-          </div>
+          <p className="SFCchallengePosition">{this.props.oneFail.challenge}</p>
           <div className="SFCrating">
             <Rating readonly={true} initialRate={this.props.average}/>
           </div>

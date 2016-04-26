@@ -4,25 +4,36 @@ var Fail = require('../models/fail');
 var Comment = require('../models/comments');
 var User = require('../models/user');
 
-/*    Fail.find({ category: req.params.cat_id })
-    .populate('category')
-    .exec(function(err, fails) {
-      if(err) {
-        console.log(err)
-      } else {
-        res.json(fails)
-      }
-    })
-    */
+
 router.route('/categories/:cat_id')
   .get(function(req, res) {
-    Fail.find({category: req.params.cat_id}).count().exec(function(err, count){
-           var random = Math.floor(Math.random() * count);
-           Fail.findOne({ category: req.params.cat_id }).skip(random).populate('category').exec(
-             function (err, result) {
-               res.json(result)
-           });
-    });
+    console.log(req.user._id, "trying to find the user in the get function route");
+    Fail.find({category: req.params.cat_id})
+      .populate('category')
+      .populate({
+        path: 'ratings',
+        select: 'user',
+      })
+      .exec(function(err, fails) {
+        console.log("finding fails!!", err, fails);
+        var incompleteFails = fails.filter(function(fail) {
+          var userFound = false;
+          for(var i = 0; i < fail.ratings.length; i++) {
+            console.log(fail.ratings[i].user.toString() === req.user._id.toString(), fail.ratings[i].user.toString(), req.user._id.toString(),  "looking for the users's ratings");
+            userFound = userFound || fail.ratings[i].user.toString() === req.user._id.toString();
+          }
+          return !userFound;
+        })
+        var count = incompleteFails.length;
+        if(count === 0){
+          res.json(null);
+        } else {
+          var random = Math.floor(Math.random() * count);
+          var results = incompleteFails[random];
+          console.log("I see you!!!!!!", results);
+          res.json(results);
+        }
+      }) 
 });
 
 router.route('/')
@@ -224,19 +235,20 @@ router.route('/user/completed/:fail_id')
     )
   })
   .get(function(req, res){
-    
+    console.log('GET /user/completed/:fail_id');
     var u = req.user ? req.user._id : "5717a34ba814d69d02b1149c";
 
     User.findById(u) 
       .populate( 'local.completed' )
     
-    .exec(function( err, user ){
-      if(err){
-        res.status(500).send( err, "Something broke on getting users completed challenges" );
-      } else {
-        res.json( user );
-      }
-    })
+      .exec(function( err, user ){
+        if(err){
+          res.status(500).send( err, "Something broke on getting users completed challenges" );
+        } else {
+          console.log("successful completed", user.local.completed);
+          res.json( user );
+        }
+      })
     
   });
 

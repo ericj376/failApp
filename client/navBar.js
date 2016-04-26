@@ -77,15 +77,21 @@ var NavBar = React.createClass({
           }
         });
       return (
-       <nav className="navbar navbarStyle">
-        <a className="navbar-brand" href=""></a>
-        <ul className="nav navbar-nav">
+        <div className="container navbarStyle">
+          <a className="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+          </a>
+          <div className="nav-collapse navbarStyle">
+            <ul className="nav navbar-nav">
           
-        { linkList }
-        { logButtons }
+              { linkList }
+              { logButtons }
 
-        </ul>
-      </nav>
+            </ul>
+          </div>
+        </div>
       )
     }
 
