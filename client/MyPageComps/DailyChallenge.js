@@ -19,7 +19,13 @@ var DailyChallenge = React.createClass ({
   render: function() {
     if(!this.props.oneFail) {
       return(
-        <div> Congrats you completed all of the Fails!!!! </div>
+        <div className="card card-size">
+          <div className="card-flex">
+            <div className="card-body"><img className="fail-img" src="http://worldartsme.com/images/your-awesome-clipart-1.jpg"/>
+              <p>Congrats on finishing all challenges!!!!</p>            
+            </div>
+          </div>
+        </div>      
         )
     } else {
       var categoryName = this.props.oneFail.category ? this.props.oneFail.category.name : "no category";
@@ -34,7 +40,7 @@ var DailyChallenge = React.createClass ({
               <div className="container opacityBox">
               </div>
               <div className="ratingBox-flex">
-                <Rating onClick={this.props.updateRate} initialRate='null' placeholderRate={this.props.ratingScale} />
+                <Rating onClick={this.props.updateRate} initialRate={0} placeholderRate={this.props.ratingScale} />
               </div>
               <p id="titlePosition">{this.props.oneFail.title}</p>          
               <p id="challengePosition">{this.props.oneFail.challenge}</p> 
