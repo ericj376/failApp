@@ -20,7 +20,7 @@ var CompletedChallengesList = React.createClass({
     
       var completedFailsArray = !this.props.completedFails ? [] : this.props.completedFails.map(item => {
         return( 
-          <CompletedChallengesCard category={item.category} img={item.img} challenge={item.challenge} title={item.title} ratingScale={this.props.ratingScale}/>
+          <CompletedChallengesCard card={item} user={this.props.user} />
         )
       })
 

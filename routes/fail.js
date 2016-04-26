@@ -30,7 +30,6 @@ router.route('/categories/:cat_id')
         } else {
           var random = Math.floor(Math.random() * count);
           var results = incompleteFails[random];
-          console.log("I see you!!!!!!", results);
           res.json(results);
         }
       }) 
@@ -233,23 +232,29 @@ router.route('/user/completed/:fail_id')
       }
       }
     )
-  })
+  });
+
+router.route('/user/completed')  
   .get(function(req, res){
     console.log('GET /user/completed/:fail_id');
     var u = req.user ? req.user._id : "5717a34ba814d69d02b1149c";
 
     User.findById(u) 
       .populate( 'local.completed' )
-    
       .exec(function( err, user ){
-        if(err){
-          res.status(500).send( err, "Something broke on getting users completed challenges" );
-        } else {
-          console.log("successful completed", user.local.completed);
-          res.json( user );
-        }
+        var options = {
+          path: 'ratings',
+          model: 'Ratings'
+        };
+        User.populate(user.local.completed, options, function(err, ratings) {
+          if(err){
+            res.status(500).send( err, "Something broke on getting users completed challenges" );
+          } else {
+            console.log("successful completed", user.local.completed);
+            res.json( user );
+          }
+        })
       })
-    
   });
 
 

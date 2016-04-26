@@ -47,21 +47,18 @@ var DailyChallengeData = React.createClass({
     }).done(function(data){
       self.setState({ user: data});  
       var categoryId = self.state.user.local.category;
-      console.log("got user", data, categoryId);
       $.ajax({
         url: '/api/fail/categories/' + categoryId,
         method: 'GET'
       }).done(function(data){
-        console.log("got category", data);
         self.setState({
           oneFail: data,
           oneFailId: data ? data._id : null 
         });
         $.ajax({
-          url: '/api/fail/user/completed/1',
+          url: '/api/fail/user/completed',
           method: 'GET'
         }).done(function(data){
-          console.log("got completed", data)
           self.setState({
             completedFails: data.local.completed,
             activeComponent: "failCard"
@@ -71,10 +68,11 @@ var DailyChallengeData = React.createClass({
     }) 
   },
   
-  submitRatingToServer: function(){
+  submitRatingToServer: function(rate){
     var self = this;
     
-    var data = {ratingScale: this.state.ratingScale};
+    var data = {ratingScale: rate};
+    console.log(this.state.oneFailId, data, "trying to find all sort of stufffffff");
     $.ajax({
       url: '/api/ratings/' + this.state.oneFailId,
       method: 'POST',
@@ -89,14 +87,15 @@ var DailyChallengeData = React.createClass({
       url: 'api/fail/user/completed/' + id,
       method: 'POST'
     }).done(function(data){
-      self.loadFailData()
+      self.loadFailData();
+      self.setState({ratingScale: 0});
     })
   },
 
   updateRate: function(rate){
-    console.log("found rate", rate);
     this.setState({ ratingScale: rate })
-    this.submitRatingToServer();
+    console.log(rate, "yo dis is da rate");
+    this.submitRatingToServer(rate);
   },
   componentDidMount: function() {
     this.loadFailData();
@@ -116,7 +115,7 @@ var DailyChallengeData = React.createClass({
       return (
         <div>
           <DailyChallenge ratingScale={this.state.ratingScale} updateRate={this.updateRate} id={oneFailId} oneFail={oneFail} getId={ this.getId } submitCompletedDailyChallenge={this.submitCompletedDailyChallenge} />
-          <CompletedChallengesList id={oneFailId} getId={this.getId} completedFails={completedFails} ratingScale={this.state.ratingScale}/>
+          <CompletedChallengesList user={this.state.user} id={oneFailId} getId={this.getId} completedFails={completedFails} />
         </div>
       )
     }  else {
