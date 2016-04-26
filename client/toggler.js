@@ -22,13 +22,13 @@ var Toggler = React.createClass({
   this.loadUserFromServer();
  },
  render: function(){
-   if(this.state.user.local && this.state.user.local.role === 'admin'){
+   if(this.state.user && this.state.user.local && this.state.user.local.role === 'admin'){
     var listDisplay = <i onClick={this.props.toggleActiveComp.bind(null, 'fail')} className="fa fa-lg fa-list-ol" aria-hidden="true"></i>
    } else {
     var listDisplay = null;
    };
 
-   if(this.state.user.local && this.state.user.local.role === 'admin'){
+   if(this.state.user && this.state.user.local && this.state.user.local.role === 'admin'){
     var newFailForm = <i onClick={this.props.toggleActiveComp.bind(null, 'form')} className="fa fa-lg fa-keyboard-o"aria-hidden="true"></i>
    } else {
     var newFailForm = null;

@@ -26,13 +26,13 @@ var FailCard = React.createClass ({
       var categoryName = this.props.category ? this.props.category.name : "no category";
       var ratingsFail = this.props.ratings ? this.props.ratings.ratingScale : "no rating";
 
-      if(this.props.user.local && this.props.user.local.role === 'admin'){
+      if(this.props.user && this.props.user.local && this.props.user.local.role === 'admin'){
         var editButton = <i onClick={this.props.getId.bind(null, 'editOne', this.props.id)} className="fa fa-lg fa-pencil editSpace" aria-hidden="true"></i>
       } else {
         var editButton = null;
       };
 
-      if(this.props.user.local && this.props.user.local.role === 'admin'){
+      if(this.props.user && this.props.user.local && this.props.user.local.role === 'admin'){
         var deleteButton = <i onClick={this.props.deleteSingleFail.bind(null, this.props.id)} className="fa fa-lg fa-trash deleteSpace" aria-hidden="true"></i>
       } else {
         var deleteButton = null;

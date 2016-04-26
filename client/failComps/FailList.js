@@ -31,7 +31,7 @@ var FailList = React.createClass({
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: false,
+      autoplay: true,
     };
     var allFails = this.props.failArray.map(item => {
 			return(
