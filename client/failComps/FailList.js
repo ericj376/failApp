@@ -29,32 +29,38 @@ var FailList = React.createClass({
       dots: true,
       infinite: true,
       speed: 1000,
-      slidesToShow: 1,
-      slidesToScroll: 1,
+      slidesToShow: 2,
+      slidesToScroll: 2,
       autoplay: true,
     };
     var allFails = this.props.failArray.map(item => {
 			return(
-			    <FailCard
-            user = {this.props.user}
-				    getId = { this.props.getId }
-	          deleteSingleFail={ this.props.deleteSingleFail }
-				    id = { item._id }
-						title = { item.title }
-						challenge = { item.challenge } 
-						rating = { item.rating }
-						img = { item.img }
-						category = { item.category }
-	          average = { this.props.getAverage(item.ratings) } />
+			    <div>
+            <FailCard
+              user = {this.props.user}
+  				    getId = { this.props.getId }
+  	          deleteSingleFail={ this.props.deleteSingleFail }
+  				    id = { item._id }
+  						title = { item.title }
+  						challenge = { item.challenge } 
+  						rating = { item.rating }
+  						img = { item.img }
+  						category = { item.category }
+  	          average = { this.props.getAverage(item.ratings) } />
+          </div>
 	  	)
 		});
   
     return (
-      <div>
-	      <Slider {...settings}>
-	        <div>{allFails}</div>
-	      </Slider>
-	    </div>
+      <div className="wrapper">
+        <div className="scrolls">
+          <div className="imageDiv">
+    	      <Slider {...settings} className="">
+    	        {allFails}
+    	      </Slider>
+          </div>
+  	    </div>
+      </div>
    );
   }
 });

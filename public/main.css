@@ -412,9 +412,9 @@ html {
 .imageDiv { 
   margin: 0;
   height: 500px;
-  width: 270px;
+  width: px;
 } 
-.imageDiv img { 
+.failDiv { 
   box-shadow: 1px 1px 10px #999; 
   margin: 2px;
   max-height: 500px;
