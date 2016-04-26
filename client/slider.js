@@ -15,13 +15,8 @@ var Slider = React.createClass({
     return (
       <Slider {...settings}>
         <div><h3>boom baby</h3></div>
-        <div><h3>boom baby</h3></div>
-        <div><h3>boom baby</h3></div>
-        <div><h3>boom baby</h3></div>
-        <div><h3>boom baby</h3></div>
       </Slider>
    );
  }
 });
 
-module.exports = Slider;

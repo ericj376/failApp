@@ -15,7 +15,7 @@ router.route('/categories/:cat_id')
         select: 'user',
       })
       .exec(function(err, fails) {
-        console.log("finding fails!!", err, fails);
+        /*console.log("finding fails!!", err, fails); */
         var incompleteFails = fails.filter(function(fail) {
           var userFound = false;
           for(var i = 0; i < fail.ratings.length; i++) {

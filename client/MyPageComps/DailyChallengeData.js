@@ -29,7 +29,7 @@ var DailyChallengeData = React.createClass({
     }
   },
   getId: function(type, id){
-    if(type === 'showOne' ? 'showOne' && 'challengeCompleted' : null){
+    if(type === 'showOne'){
       return this.setState({ oneFailId: id, activeComponent: 'oneFail' })
     } else if ( type === 'goBack') {
       return this.setState({ oneFailId: id, activeComponent: 'failCard' })
@@ -58,13 +58,13 @@ var DailyChallengeData = React.createClass({
           oneFailId: data ? data._id : null 
         });
         $.ajax({
-          url: '/api/fail/user/completed/',
+          url: '/api/fail/user/completed/1',
           method: 'GET'
         }).done(function(data){
           console.log("got completed", data)
           self.setState({
             completedFails: data.local.completed,
-            activeComponent: "oneFail"
+            activeComponent: "failCard"
           });
         })
       })
