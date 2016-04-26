@@ -37,9 +37,7 @@ var CommentList = React.createClass({
       url: '/getUser',
       method: 'GET'
     }).done(function(data){
-      console.log(data, "this is load user from server YO")
       self.setState({ userLocal: data});
-      console.log(self.state);
     })
    },
     getId: function(type, id){

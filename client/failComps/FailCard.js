@@ -25,6 +25,7 @@ var FailCard = React.createClass ({
     render: function(){
       var categoryName = this.props.category ? this.props.category.name : "no category";
       var ratingsFail = this.props.ratings ? this.props.ratings.ratingScale : "no rating";
+      window.u = this.props.user
 
       if(this.props.user && this.props.user.local && this.props.user.local.role === 'admin'){
         var editButton = <i onClick={this.props.getId.bind(null, 'editOne', this.props.id)} className="fa fa-lg fa-pencil editSpace" aria-hidden="true"></i>

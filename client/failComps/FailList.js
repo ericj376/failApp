@@ -36,6 +36,7 @@ var FailList = React.createClass({
     var allFails = this.props.failArray.map(item => {
 			return(
 			    <FailCard
+            user = {this.props.user}
 				    getId = { this.props.getId }
 	          deleteSingleFail={ this.props.deleteSingleFail }
 				    id = { item._id }

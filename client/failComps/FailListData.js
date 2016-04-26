@@ -83,7 +83,7 @@ var FailListData = React.createClass({
       )
     } else if ( this.props.onlyOne ) {
       renderingStuff = (
-          <SingleFailCardData getAverage={this.getAverage} id={ this.props.activeFailId } />
+          <SingleFailCardData getAverage={this.getAverage} id={ this.props.activeFailId } toggleActiveComp={this.props.toggleActiveComp} />
       )
     } 
 		return renderingStuff;

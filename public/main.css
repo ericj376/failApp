@@ -428,6 +428,15 @@ html {
     }
 }
 
+.goBackButton {
+  color: red;
+  left: 20px !important;
+  background-color: transparent;
+  border: none;
+  font-size: 2.5em;
+
+
+}
 
 
 

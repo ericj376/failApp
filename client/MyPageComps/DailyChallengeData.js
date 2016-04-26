@@ -47,12 +47,10 @@ var DailyChallengeData = React.createClass({
     }).done(function(data){
       self.setState({ user: data});  
       var categoryId = self.state.user.local.category;
-      console.log("got user", data, categoryId);
       $.ajax({
         url: '/api/fail/categories/' + categoryId,
         method: 'GET'
       }).done(function(data){
-        console.log("got category", data);
         self.setState({
           oneFail: data,
           oneFailId: data ? data._id : null 
@@ -61,7 +59,6 @@ var DailyChallengeData = React.createClass({
           url: '/api/fail/user/completed/1',
           method: 'GET'
         }).done(function(data){
-          console.log("got completed", data)
           self.setState({
             completedFails: data.local.completed,
             activeComponent: "failCard"
@@ -94,7 +91,6 @@ var DailyChallengeData = React.createClass({
   },
 
   updateRate: function(rate){
-    console.log("found rate", rate);
     this.setState({ ratingScale: rate })
     this.submitRatingToServer();
   },

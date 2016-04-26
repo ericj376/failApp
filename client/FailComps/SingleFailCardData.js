@@ -29,6 +29,7 @@ var SingleFailCardData = React.createClass({
       allComments: null,
     }
   },
+
   deleteComment: function(id){
     var self = this;
     $.ajax({
@@ -56,7 +57,7 @@ var SingleFailCardData = React.createClass({
     this.loadOneFailFromServer();
   },
   render: function(){
-    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } deleteComment={ this.deleteComment } average={ this.state.ratingAverage } /> : null;
+    return this.state.oneFail ? <SingleFailCard loadOneFailFromServer={ this.loadOneFailFromServer } oneFail={ this.state.oneFail } id={ this.props.id } deleteComment={ this.deleteComment } average={ this.state.ratingAverage } toggleActiveComp={this.props.toggleActiveComp} /> : null;
   }
 });
 
