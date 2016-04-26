@@ -59,7 +59,7 @@ var NavBar = React.createClass({
 
       var currentComponent = self.props.getActiveComponent;
       var linkList =
-        links.map(function(aLink) {
+        links.filter(function(l){return !(user === null && l === 'my page')}).map(function(aLink) {
           if(currentComponent() === aLink) {
             return (
               <li className="nav-item active" key={aLink}>

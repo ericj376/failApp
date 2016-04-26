@@ -7,7 +7,6 @@ var User = require('../models/user');
 
 router.route('/categories/:cat_id')
   .get(function(req, res) {
-    console.log(req.user._id, "trying to find the user in the get function route");
     Fail.find({category: req.params.cat_id})
       .populate('category')
       .populate({
@@ -15,11 +14,13 @@ router.route('/categories/:cat_id')
         select: 'user',
       })
       .exec(function(err, fails) {
-        /*console.log("finding fails!!", err, fails); */
+        if (err) {
+          res.status(500).send(err, "failed on category route");
+          return;
+        }
         var incompleteFails = fails.filter(function(fail) {
           var userFound = false;
           for(var i = 0; i < fail.ratings.length; i++) {
-            console.log(fail.ratings[i].user.toString() === req.user._id.toString(), fail.ratings[i].user.toString(), req.user._id.toString(),  "looking for the users's ratings");
             userFound = userFound || fail.ratings[i].user.toString() === req.user._id.toString();
           }
           return !userFound;
@@ -46,7 +47,6 @@ router.route('/')
 			icon: req.body.icon,
       category: req.body.category,
 		});
-		console.log(fail);
 		fail.save(function(err, fail) {
 			if(err) {
 				res.status(500).send(err, "Failed on the Save Route");
@@ -66,7 +66,6 @@ router.route('/')
     })
 		.exec(function(err, fails) {
 			if(err) {
-				console.log(err)
 			} else {
 				res.json(fails)
 			}
@@ -90,7 +89,6 @@ router.route('/:fail_id')
       })
 			.exec(function(err, fail) {
 				if (err) {
-					console.log(err)
 				}else {
 					res.json(fail)
 				}
@@ -100,7 +98,6 @@ router.route('/:fail_id')
 	.put(function(req, res) {
 		Fail.findById(req.params.fail_id, function(err, fail) {
 			if(err) {
-				console.log(err)
 			} else {
 				 fail.title = req.body.title ? req.body.title : fail.title;
 	       fail.challenge = req.body.challenge ? req.body.challenge : fail.challenge;
@@ -111,7 +108,6 @@ router.route('/:fail_id')
 
          fail.save(function(err, newFail) {
            if (err) {
-             console.log(err)
            } else {
              res.json({ message: 'Failure updated!'});
            }
@@ -123,7 +119,6 @@ router.route('/:fail_id')
  .delete(function(req, res){
    Fail.remove({ _id: req.params.fail_id }, function (err, fail){
      if(err) {
-       console.log(err);
      } else {
        res.json({ title: 'failure was successfully deleted!' });
      }
@@ -154,7 +149,6 @@ router.route('/:fail_id')
     comment.user = req.user ? req.user._id : "570feef11b7140423ccbddcd";
     comment.fail = req.params.fail_id;
 
-    console.log(comment.body);
 
     comment.save(function(err, com){
       if(err){
@@ -177,7 +171,6 @@ router.route('/:fail_id/comment/:comments_id')
   .delete(function(req, res ){
     Comment.remove({_id: req.params.comments_id}, function(err, comment){
       if(err){
-          console.log(err);
       } else {
         res.json({message: 'comment deleted'});
       }
@@ -186,13 +179,11 @@ router.route('/:fail_id/comment/:comments_id')
   .put(function(req, res){
     Comment.findById(req.params.comments_id, function(err, comment){
       if(err) {
-        console.log(err)
       } else {
         comment.body = req.body.body ? req.body.body : comment.body;
 
         comment.save(function(err, newComment) {
           if (err) {
-            console.log(err)
           } else {
           } res.json({ message: 'Comment updated!'});
         })
@@ -204,7 +195,6 @@ router.route('/:fail_id/comment/:comments_id')
       .populate({ path: 'user', select: 'local.username' })
       .exec(function(err, comment){
         if(err){
-          console.log(err)
         } else {
           res.json(comment)
         }
@@ -236,11 +226,11 @@ router.route('/user/completed/:fail_id')
 
 router.route('/user/completed')  
   .get(function(req, res){
-    console.log('GET /user/completed/:fail_id');
     var u = req.user ? req.user._id : "5717a34ba814d69d02b1149c";
 
     User.findById(u) 
       .populate( 'local.completed' )
+      .populate( 'local.category')
       .exec(function( err, user ){
         var options = {
           path: 'ratings',
@@ -250,7 +240,6 @@ router.route('/user/completed')
           if(err){
             res.status(500).send( err, "Something broke on getting users completed challenges" );
           } else {
-            console.log("successful completed", user.local.completed);
             res.json( user );
           }
         })

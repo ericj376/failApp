@@ -17,13 +17,15 @@ var CompletedChallengesCard = require('./CompletedChallengesCard');
 var CompletedChallengesList = React.createClass({
   
   render: function(){
-    
+      console.log(this.props.user.local.category, "this is CCList")
       var completedFailsArray = !this.props.completedFails ? [] : this.props.completedFails.map(item => {
+
         return( 
-          <CompletedChallengesCard card={item} user={this.props.user} />
+          <CompletedChallengesCard card={item} user={this.props.user}  />
         )
       })
 
+          
     return (
       <div>
         { completedFailsArray }
