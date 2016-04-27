@@ -53,6 +53,7 @@
   width: 270px;
   text-align: center;
   margin-bottom: 0px;
+  text-shadow: 2px 2px black !important;
 }
 #titlePosition {
   font-weight: bold;
@@ -64,6 +65,7 @@
   width: 270px;
   text-align: center;
   opacity: 1 !important;
+  text-shadow: 2px 2px black !important;
 }
 .opacityBox {
   display: block;
@@ -410,7 +412,13 @@ html {
 .scrolls { 
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 500px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  width: 100%;
+  color: #333;
+  background: #F09508;
+}
 } 
 .imageDiv { 
   margin: 0;

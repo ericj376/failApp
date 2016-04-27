@@ -29,9 +29,9 @@ var FailList = React.createClass({
       dots: true,
       infinite: true,
       speed: 1000,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 2,
-      autoplay: true,
+      autoplay: false,
     };
     var allFails = this.props.failArray.map(item => {
 			return(
@@ -52,7 +52,7 @@ var FailList = React.createClass({
 		});
   
     return (
-      <div className="wrapper">
+      <div className="">
         <div className="scrolls">
           <div className="imageDiv">
     	      <Slider {...settings}>
