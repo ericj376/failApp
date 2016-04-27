@@ -19,10 +19,10 @@ var DailyChallenge = React.createClass ({
   render: function() {
     if(!this.props.oneFail) {
       return(
-        <div className="card card-size">
+        <div className="card card-size card-style">
           <div className="card-flex">
             <div className="card-body"><img className="fail-img" src="http://worldartsme.com/images/your-awesome-clipart-1.jpg"/>
-              <p>Congrats on finishing all challenges!!!!</p>            
+              <p className="congrats-message">Congrats on finishing all challenges!!!!</p>            
             </div>
           </div>
         </div>      
@@ -30,7 +30,7 @@ var DailyChallenge = React.createClass ({
     } else {
       var categoryName = this.props.oneFail.category ? this.props.oneFail.category.name : "no category";
       return (
-        <div className="card card-size">
+        <div className="card card-size card-style">
           <div className="card-flex">
             <div className="card-body"><img className="fail-img" src={this.props.oneFail.img}/>
               <div className="categoryBox">

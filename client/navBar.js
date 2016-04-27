@@ -27,10 +27,10 @@ var LogOut = React.createClass({
       var self = this;
       return (  
         <div>
-          <li className="nav-item pull-xs-right">
-            <button onClick= {self.context.logOut} className="nav-link btn btn-success-outline" type="submit">log out</button> 
+          <li className="nav-item pull-xs-right signUpStyle">
+            <button onClick= {self.context.logOut} className="nav-link btn" type="submit">log out</button> 
           </li>
-          <li className="nav-item pull-xs-right"> 
+          <li className="nav-item pull-xs-right signUpStyle"> 
             <p className="nav-link"> Logged in as: {self.props.userDisplay}</p>
           </li>
         </div>
@@ -77,21 +77,18 @@ var NavBar = React.createClass({
           }
         });
       return (
-        <div className="container navbarStyle">
-          <a className="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </a>
-          <div className="nav-collapse navbarStyle">
-            <ul className="nav navbar-nav">
-          
-              { linkList }
-              { logButtons }
-
-            </ul>
-          </div>
-        </div>
+              <nav className="navbar navbar-light bg-faded">
+                <button className="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+                  &#9776;
+                </button>
+                <div className="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                  <a className="navbar-brand" href="#"></a>
+                    <ul className="nav navbar-nav">
+                      { linkList }
+                      { logButtons }
+                    </ul>
+                </div>
+              </nav>
       )
     }
 

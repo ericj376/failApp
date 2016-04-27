@@ -12,9 +12,7 @@
   max-width: 600px;
   align-content: center;
 }
-body {
-    font-family: 'Open Sans', sans-serif !important;
-}
+
 .card-body {
   position: relative;
 }
@@ -102,10 +100,11 @@ body {
 }
 
 body {
-  background-color: grey;
+  background-color: #F09508;
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 100px !important;
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 .main-header {
@@ -312,20 +311,21 @@ body {
 .failBoxColor {
   background-color: white;
 }
-.navbarStyle {
+.navbar {
   background-color: #F09508;
-  height: 50px;
-  width: 100%;
 }
 .nav-link {
-  color: white;
+  color: white !important;
   font-family: "Open Sans", sans-serif !important;
 }
 .signUpStyle {
-  background-color: #F09508;
+  background-color: transparent !important;
   border: none;
   color: white;
   font-family: "Open Sans", sans-serif !important;
+}
+.linkList{
+  color: white;
 }
 html {
   background-color: white;
@@ -369,6 +369,7 @@ html {
   background-color: #4D4D4D;
   height: 550px;
   width: 100%;
+  border-radius: 0px;
 }
 .home-video {
   width: 100%;
@@ -434,11 +435,18 @@ html {
   background-color: transparent;
   border: none;
   font-size: 2.5em;
-
-
+}
+.congrats-message {
+  position: absolute;
+  top: 20px;
 }
 
-
+.card-style {
+  border: solid #4D4D4D 10px;
+  height: 520px !important;
+  width: 290px !important;
+  left: 40%;
+}
 
 
 
