@@ -40,17 +40,13 @@ function EditFailCardForm(props) {
          <input onChange={props.onImgChange} value={props.img} type="text" className="form-control"/>
        </fieldset>
        <fieldset className="form-group">
-         <label>rating</label>
-         <input onChange={ props.onRatingChange } value={ props.rating }  className="form-control"/>
-       </fieldset>
-       <fieldset className="form-group">
          <label htmlFor="exampleSelect1">categories</label>
           <select onChange={ props.onCategoryChange } value={ props.category }  className="form-control">
              <option>Please Choose</option>
              {categoryList}
           </select>
        </fieldset>
-       <button className="btn btn-success-outline" type="submit"> Submit </button>
+       <button className="btn loginButton" type="submit"> Submit </button>
      </form>
      </div>
     )

@@ -25,9 +25,7 @@ function CompletedChallengesCard(props) {
       <div className="card-body"><img className="fail-img" src={props.card ? props.card.img : ''}/>
         <div className="categoryBox">
           <p className="categoryText">{props.user.local.category.name}</p>
-        </div>
-        <i className="fa fa-lg fa-binoculars viewSpace" aria-hidden="true"></i>
-        
+        </div>        
         <div className="container opacityBox">
         </div>
         <div className="ratingBox-flex">

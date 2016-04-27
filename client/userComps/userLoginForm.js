@@ -15,8 +15,8 @@ function UserLoginForm(props) {
     ));
 
         return (
-            <div className="jumbotron">
-              <div className="container">
+            <div className="jumbotron JumbotronLoginForm">
+              <div className="container loginForm">
                 <form onSubmit={ props.submitUserToServer } >
                     <legend>{props.login ? 'Log In' : 'Sign Up'}</legend>
                   
@@ -58,7 +58,7 @@ function UserLoginForm(props) {
                     }
 
                   
-                    <button type="submit" className="btn btn-primary">{props.login ? 'Log In' : 'Sign Up'}</button>
+                    <button type="submit" className="btn loginButton">{props.login ? 'Log In' : 'Sign Up'}</button>
                   </form>
               </div>
             </div>

@@ -29,7 +29,7 @@ var FailList = React.createClass({
       dots: true,
       infinite: true,
       speed: 1000,
-      slidesToShow: 2,
+      slidesToShow: 3,
       slidesToScroll: 2,
       autoplay: true,
     };
@@ -55,7 +55,7 @@ var FailList = React.createClass({
       <div className="wrapper">
         <div className="scrolls">
           <div className="imageDiv">
-    	      <Slider {...settings} >
+    	      <Slider {...settings}>
             <prevArrow/>
     	        {allFails}
     	      </Slider>
