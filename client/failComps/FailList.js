@@ -55,7 +55,8 @@ var FailList = React.createClass({
       <div className="wrapper">
         <div className="scrolls">
           <div className="imageDiv">
-    	      <Slider {...settings} className="">
+    	      <Slider {...settings} >
+            <prevArrow/>
     	        {allFails}
     	      </Slider>
           </div>
