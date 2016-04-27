@@ -20,7 +20,7 @@ mongoose.connect(mongooseUri, options, function(err, data){
   console.log('connection', data);
 }
 });
-mongoose.connect('mongodb://localhost/fail');
+
 
 var passport = require('passport');
 var failRouter = require('./routes/fail');
