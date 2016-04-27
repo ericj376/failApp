@@ -372,7 +372,6 @@ html {
   background-color: #4D4D4D;
   max-height: 515px;
   min-height: 600px;
-
   margin-bottom: 0px;
   overflow: hidden;
   width: 100% !important;
@@ -422,6 +421,20 @@ html {
     .failBoxColor {     
         height: 300px;
     }
+}
+
+.text-box{
+  display: block;
+  opacity: 1.0;
+  font-size: 3em;
+  font-weight: 900;
+  color: white;
+  width: 270px;
+  height: 150px;
+  position: relative;
+  bottom: -254px;
+  left: 0px;
+  text-shadow: 2px 2px #000000;
 }
 
 .home-video {
@@ -529,5 +542,4 @@ html {
         margin-left: 0px;
     }
 }
-
 
