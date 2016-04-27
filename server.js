@@ -1,13 +1,30 @@
 var path = require('path');
 var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fail');
-var app = express();
+var uriUtil = require('mongodb-uri');
+var options = {
+  server:  { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};  
+var mongodbUri = process.env.MONGODB_URI || "mongodb://localhost/fail";
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
-var session = require('express-session');
+console.log(mongooseUri);
+
+mongoose.connect(mongooseUri, options, function(err, data){
+        if(err){
+  console.log('connection error', err);
+} else {
+  console.log('connection', data);
+}
+});
+mongoose.connect('mongodb://localhost/fail');
+
 var passport = require('passport');
 var failRouter = require('./routes/fail');
+var session = require('express-session');
 
 var comments = require('./models/comments');
 var fail = require('./models/fail');

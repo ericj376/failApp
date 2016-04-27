@@ -1,5 +1,5 @@
 {
-  "name": "stripe-demo",
+  "name": "failApp",
   "version": "1.0.0",
   "description": "webpack for react",
   "main": "server.js",
@@ -58,6 +58,7 @@
     "express-session": "^1.13.0",
     "material-ui": "^0.14.4",
     "mongodb": "^2.0.46",
+    "mongodb-uri": "^0.9.7",
     "mongoose": "^4.2.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -69,5 +70,8 @@
     "slick-carousel": "^1.5.9",
     "superagent": "^1.4.0",
     "xlsx": "^0.8.0"
+  }
+  "engines": {
+    "node": "5.5.0"
   }
 }
