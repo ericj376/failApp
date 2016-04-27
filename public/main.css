@@ -475,6 +475,8 @@ html {
         margin-left: 0px;
     }
 }
-
+.slick-prev, .slick-next {
+  background: black !important;
+}
 
 

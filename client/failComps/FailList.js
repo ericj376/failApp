@@ -23,6 +23,17 @@ var React = require('react');
 var FailCard = require('./FailCard');
 var Slider = require('react-slick');
 
+class PrevButton extends React.Component {
+  render() {
+    return <button {...this.props}>Prev</button>  
+  }
+};
+
+class NextButton extends React.Component {
+  render() {
+    return <button {...this.props}>Next</button>  
+  }
+};
 var FailList = React.createClass({
   render: function () {
     var settings = {
@@ -32,6 +43,7 @@ var FailList = React.createClass({
       slidesToShow: 4,
       slidesToScroll: 2,
       autoplay: false,
+
     };
     var allFails = this.props.failArray.map(item => {
 			return(
@@ -56,7 +68,6 @@ var FailList = React.createClass({
         <div className="scrolls">
           <div className="imageDiv">
     	      <Slider {...settings}>
-            <prevArrow/>
     	        {allFails}
     	      </Slider>
           </div>
