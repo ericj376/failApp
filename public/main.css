@@ -530,4 +530,15 @@ html {
     }
 }
 
+.text-box {
+  display: block;
+  opacity: 0.5;
+  background-color: gray;
+  width: 270px;
+  height: 150px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
 
