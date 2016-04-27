@@ -422,8 +422,9 @@ html {
 } 
 .imageDiv { 
   margin: 0;
-  height: 500px;
-  width: px;
+  height: 600px;
+  width: 0px;
+
 } 
 .failDiv { 
   box-shadow: 1px 1px 10px #999; 
@@ -474,9 +475,6 @@ html {
         padding-left: 0px;
         margin-left: 0px;
     }
-}
-.slick-prev, .slick-next {
-  background: black !important;
 }
 
 
