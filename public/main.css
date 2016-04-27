@@ -368,13 +368,19 @@ html {
 }
 .jumbotronStyle {
   background-color: #4D4D4D;
-  height: 550px;
+  height: 515px;
+  margin-bottom: 0px;
+  overflow: hidden;
   width: 100%;
-  border-radius: 0px;
+  bottom: 0px;
+  position: relative;
 }
 .home-video {
   width: 100%;
+  top: 10px;
+  bottom: 0px;
   height: 600px;
+  position: absolute;
 }
 .SFCcontainer {
   background-color: #F09508;
