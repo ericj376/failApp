@@ -370,18 +370,63 @@ html {
 }
 .jumbotronStyle {
   background-color: #4D4D4D;
-  height: 515px;
+  max-height: 515px;
+  min-height: 600px;
+
   margin-bottom: 0px;
   overflow: hidden;
-  width: 100%;
+  width: 100% !important;
+  height: auto !important;
   bottom: 0px;
   position: relative;
   padding-left: 0px;
-  padding-right: 0px;
+  padding-right: 0px;  
 }
+
+@media only screen and (max-width: 720px) {
+    .jumbotronStyle {     
+      background-color: #4D4D4D;
+      max-height: 260px;
+      min-height: 300px;
+      margin-bottom: 0px;
+      overflow: hidden;
+      width: 100% !important;
+      height: auto !important;
+      bottom: 0px;
+      position: relative;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+}
+
+
+
+@media only screen and (max-width: 970px) {
+    .failBoxColor {     
+        height: 600px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .failBoxColor {     
+        height: 540px;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .failBoxColor {     
+        height: 500px;
+    }
+}
+@media only screen and (max-width: 410px) {
+    .failBoxColor {     
+        height: 300px;
+    }
+}
+
 .home-video {
-  min-width: 100%
-  top: 10px;
+  max-width: 100%;
+  top: 0px;
   bottom: 0px;
   min-height: 100%;
   position: absolute;
