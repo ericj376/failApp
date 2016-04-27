@@ -376,12 +376,14 @@ html {
   width: 100%;
   bottom: 0px;
   position: relative;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .home-video {
-  width: 100%;
+  min-width: 100%
   top: 10px;
   bottom: 0px;
-  height: 600px;
+  min-height: 100%;
   position: absolute;
 }
 .SFCcontainer {
