@@ -70,7 +70,7 @@
     "slick-carousel": "^1.5.9",
     "superagent": "^1.4.0",
     "xlsx": "^0.8.0"
-  }
+  },
   "engines": {
     "node": "5.5.0"
   }
