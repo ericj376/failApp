@@ -46,7 +46,7 @@ function FailForm(props){
           {categoryList}
         </select>
       </fieldset>
-      <button className="btn btn-success-outline" type="submit"> Submit </button>
+      <button className="btn loginButton" type="submit"> Submit </button>
     </form>
   </div>
  )

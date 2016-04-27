@@ -32,7 +32,7 @@ var SingleFailCard = React.createClass({
      
     return(
       <div className="jumbotron jumbotron-fluid SFCcontainer">
-        <div className="container singleFailCard">
+        <div className="container-fluid container singleFailCard">
           <button onClick={this.props.toggleActiveComp.bind(null, 'fail')} className="fa fa-undo fa-lg goBackButton pull-right fa-stack" aria-hidden="true"></button>
           <p className="SFCtitlePosition">{this.props.oneFail.title}</p>
           <img className="SFCimgPosition" src={this.props.oneFail.img}/>
