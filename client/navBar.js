@@ -73,22 +73,22 @@ var NavBar = React.createClass({
                 <a className="nav-link" 
                 onClick={ self.props.setActiveComponent.bind(null, aLink)}>{ aLink }</a>
               </li>
-              )
+            )
           }
         });
       return (
-              <nav className="navbar navbar-light bg-faded">
-                <button className="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
-                  &#9776;
-                </button>
-                <div className="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-                  <a className="navbar-brand" href="#"></a>
-                    <ul className="nav navbar-nav">
-                      { linkList }
-                      { logButtons }
-                    </ul>
-                </div>
-              </nav>
+        <nav className="navbar navbar-light bg-faded">
+          <button className="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+            &#9776;
+          </button>
+          <div className="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+            <a className="navbar-brand" href="#"></a>
+              <ul className="nav navbar-nav">
+                { linkList }
+                { logButtons }
+              </ul>
+          </div>
+        </nav>
       )
     }
 
