@@ -7,10 +7,9 @@ var Home = React.createClass({
       <div className="failBoxColor">
         <div>
           <div className="jumbotron jumbotronStyle">
-            <div>
-              <iframe className="embed-responsive-item home-video" src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed.mp4" ></iframe>
-            </div>
-            
+            <video autoPlay muted loop="true" className="embed-responsive-item home-video"
+              src="https://dl.dropboxusercontent.com/s/pka6euqobobmqz7/failMovieOne.mp4" 
+              type="video/mp4"></video>         
           </div>
         </div>
         <div>
