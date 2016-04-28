@@ -28,7 +28,7 @@ var DailyChallengeDetail = React.createClass({
           <img className="SFCimgPosition" src={img}/>
           <p className="SFCchallengePosition">{challenge}</p>
           <p className="SFCcategory">{categoryName}</p>
-          <button onClick={this.props.getId.bind(null, 'goBack', this.props.id)} className="btnPosition btn"> Go Back </button>
+          <button onClick={this.props.getId.bind(null, 'goBack', this.props.id)} className="fa fa-undo fa-lg goBackButton pull-right fa-stack" aria-hidden="true"></button>
         </div>
       </div>
     )

@@ -26,8 +26,8 @@ var CompletedChallengesList = React.createClass({
       slidesToScroll: 2,
       autoplay: false,
     };
-      console.log(this.props.user.local.category, "this is CCList")
       var completedFailsArray = !this.props.completedFails ? [] : this.props.completedFails.map(item => {
+        console.log(this.props.user, "this is CCCLIST")
 
         return( 
           <div>

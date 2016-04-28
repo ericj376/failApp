@@ -110,7 +110,7 @@ var DailyChallengeData = React.createClass({
       return (
         <div>
           <DailyChallengeDetail oneFail={oneFail} id={oneFailId} getId={ this.getId } />
-          <CompletedChallengesList id={oneFailId} getId={this.getId} completedFails={completedFails} />
+          <CompletedChallengesList id={oneFailId} getId={this.getId} completedFails={completedFails} user={this.state.user}/>
         </div>
       )
     } else if (this.state.activeComponent === 'failCard') {

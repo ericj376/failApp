@@ -42,6 +42,7 @@ function CompletedChallengesCard(props) {
 
 
 function getRating(ratings, user) {
+  console.log(user, user._id, "this is CCCard")
   var rating = 0;
   for(var i = 0; i < ratings.length; i++) {
     rating = ratings[i].user.toString() === user._id.toString() ? ratings[i].ratingScale : rating;
