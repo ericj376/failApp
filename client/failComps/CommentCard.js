@@ -27,14 +27,14 @@ var CommentCard = React.createClass({
       admin edit delete not working correctly
       */
 
-    if(this.props.userLocal.role == "admin" || this.props.userLocal._id === this.props.userId){
+    if(this.props.userLocal && (this.props.userLocal.role == "admin" || this.props.userLocal._id === this.props.userId)){
 
       var deleteComment = <button onClick={this.props.deleteComment.bind(null,  this.props.id)} type="button" className="btn btn-warning">Delete Comment</button>
     } else {
       var deleteComment = null;
     };
 
-    if(this.props.userLocal.role == "admin" || this.props.userLocal._id === this.props.userId){
+    if(this.props.userLocal && (this.props.userLocal.role == "admin" || this.props.userLocal._id === this.props.userId)){
 
       var editComment = <button onClick={this.props.getId.bind(null, 'editOneComment', this.props.id)} type="button" className="btn btn-warning">Edit Comment</button>
     } else {

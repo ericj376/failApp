@@ -22,7 +22,7 @@ var React = require('react');
 var CommentForm = React.createClass({
   render: function(){
     window.u = this.props.userLocal;
-    if(this.props.userLocal.user !== "no user"){
+    if(this.props.userLocal && this.props.userLocal.user !== "no user"){
       var formComment = 
         <div className="container">
           <div className="row col-lg-12">
