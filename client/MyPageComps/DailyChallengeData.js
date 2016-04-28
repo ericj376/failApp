@@ -107,6 +107,7 @@ var DailyChallengeData = React.createClass({
 
 
     if(this.state.activeComponent === 'oneFail'){
+      console.log(this.state.user, "this is DailyChallengeData")
       return (
         <div>
           <DailyChallengeDetail oneFail={oneFail} id={oneFailId} getId={ this.getId } />
