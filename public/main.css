@@ -582,4 +582,25 @@ html {
   left: 0%;
 }
 }
+@media only screen and (max-width: 500px){
+.resourceContainer {
+  display: none;
+}
+}
+@media only screen and (max-width: 380px){
+.research {
+  border: 2px black;
+  border-radius: 15px;
+  background-color: #F09508;
+  margin-top: 25px;
+  }
+}
+
+@media only screen and (max-width: 380px){
+.textContainer {
+  height: 350px;
+  width: 250px;
+}
+}
+
 

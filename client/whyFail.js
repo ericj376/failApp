@@ -14,7 +14,7 @@ var WhyFail = React.createClass({
 	    				<img className="bigPic" href src="http://tech.co/wp-content/uploads/2015/02/Success_Failure_direct.jpg" />
 	    			</div>
 	    			<div className="col-md-6">
-	    				<div className="container">
+	    				<div className="container bioContainer">
 	    					<p className="textContainer"> Fail App was thought up, designed and developed by Amita Greer, Teague Goodvoice, Eric Ellingson and Lars Martinson of Montana Code School during the spring of 2016. They devised this app as a solution to their challenge of trying to find a job after graduating MTCS. Through the development of the Fail App they have failed many times trying to solve specific problems, however they have grown as developers and now realize that failure is just one step on the road to success.   </p>
 	    				</div>
 	    			</div>
@@ -22,7 +22,7 @@ var WhyFail = React.createClass({
 	  			<div className="container research">
 	  				<h5> Research has consistently shown that failing, and learning from these experiences, helps us accept that failure is natural. This acceptance of failing helps you move past that fear and achieve your goals.</h5>
 	  			</div>
-	  			<div className="row jumbotron col-xs-12">	
+	  			<div className="row jumbotron col-xs-12 resourceContainer">	
 	  				<div className="col-xs-6 container jobResource">
 	  					<h2> Resources For Jobs </h2>
   						<ul>
