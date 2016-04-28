@@ -544,9 +544,7 @@ html {
         margin-left: 0px;
     }
 }
-.slick-prev, .slick-next {
-  background: black !important;
-}
+
 .failCont {
   background-color: #F09508;
   border-radius: 10px;
