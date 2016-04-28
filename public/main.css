@@ -398,6 +398,10 @@ html {
       padding-left: 0px;
       padding-right: 0px;
     }
+    .text-box{
+      bottom: 0 !important;
+      font-size: 2em !important;
+    }
 }
 
 
